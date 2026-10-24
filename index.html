@@ -1,0 +1,794 @@
+<!doctype html>
+<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Réservez l'anniversaire de votre enfant, une fête ado, un EVJF ou un EVG à Espace 360 Cormeilles-en-Parisis : formule, jour et activités parmi les créneaux libres.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#091421">
+<meta property="og:title" content="Réserver une fête · Espace 360 Cormeilles">
+<meta property="og:description" content="Anniversaires enfants, ados et adultes : choisissez la formule, le jour et les activités.">
+<link rel="icon" href="logo.png"><link rel="apple-touch-icon" href="logo.png">
+<style>body{margin:0}</style></head><body>
+<title>Réserver une fête · Espace 360</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600&family=Hanken+Grotesk:wght@400;500;600;700&display=swap">
+<style>
+/* Parcours en écrans successifs, sur le modèle de la réservation IL SPAZIO : une question par écran, en-tête d'étape
+   avec retour et rail de progression, bouton principal toujours au même endroit (barre basse sur mobile, colonne
+   récapitulatif sur ordinateur). Couleurs Espace 360 : nuit #091421 pour l'encre, l'en-tête et les sélections,
+   orange #FF5C00 réservé à l'action, bleu du logo pour les repères. Titres Oswald (site), texte Hanken Grotesk (IL SPAZIO). */
+:root{
+  --fond:#F5F3EE; --surface:#FFFFFF; --surface2:#EEEAE2; --ligne:#E3DED4; --ligne2:#C9C2B5;
+  --encre:#091421; --second:#4F5867; --sourd:#646C79;
+  --nuit:#091421;
+  --orange:#FF5C00; --orange-fonce:#DB4E00; --orange-doux:#FFEBDF; --orange-texte:#B03E00;
+  --bleu:#1660AE; --bleu-doux:#E4EFFA;
+  --ok:#2E8A57; --attention:#9A6512; --attention-doux:#FBF0DD;
+  --c-trampo:#3E8E57; --c-laser:#9B4DB0; --c-bowling:#2F68B0; --c-karaoke:#D9733F; --c-escalade:#C99712; --c-plaine:#8C7B5E; --c-flechettes:#B0453F; --c-billard:#2E7D74; --c-quiz:#5B5FA8; --c-gouter:#C9C2B5;
+  --titre:'Oswald','Arial Narrow',sans-serif; --corps:'Hanken Grotesk',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --r:14px; --r-carte:18px;
+  --ombre:0 1px 2px rgba(9,20,33,.05),0 6px 20px -12px rgba(9,20,33,.22);
+  --ombre-cta:0 12px 24px -12px rgba(255,92,0,.75);
+  --gout:20px;
+  color-scheme:light;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+[hidden]{display:none!important}
+html{scroll-padding-top:96px}
+body{background:var(--fond);color:var(--encre);font-family:var(--corps);font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased;font-kerning:normal;overflow-x:hidden}
+p,li{text-wrap:pretty}
+button{font:inherit;color:inherit;cursor:pointer;-webkit-tap-highlight-color:transparent;transition:transform .09s ease-out}
+button:not(:disabled):active{transform:scale(.97)}
+:focus-visible{outline:3px solid var(--orange);outline-offset:2px;border-radius:6px}
+:focus:not(:focus-visible){outline:none}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+.col{max-width:720px;margin:0 auto;padding-left:max(var(--gout),env(safe-area-inset-left,0px));padding-right:max(var(--gout),env(safe-area-inset-right,0px))}
+.tab{font-variant-numeric:tabular-nums}
+.vh{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+@keyframes fondu{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.ecran{animation:fondu .26s ease both}
+.ecran h2:focus{outline:none}
+
+/* ---------- Accueil ---------- */
+.hero{background:var(--nuit);color:#fff;position:relative;overflow:hidden;padding-top:env(safe-area-inset-top,0px)}
+.hero::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.55;background:
+  radial-gradient(1.2px 1.2px at 8% 18%,#fff 50%,transparent 52%),radial-gradient(1px 1px at 22% 64%,#fff 50%,transparent 52%),
+  radial-gradient(1px 1px at 41% 12%,#fff 50%,transparent 52%),radial-gradient(1.4px 1.4px at 63% 30%,#fff 50%,transparent 52%),
+  radial-gradient(1px 1px at 78% 72%,#fff 50%,transparent 52%),radial-gradient(1.2px 1.2px at 91% 22%,#fff 50%,transparent 52%),
+  radial-gradient(1px 1px at 52% 84%,#fff 50%,transparent 52%),radial-gradient(1px 1px at 12% 88%,#fff 50%,transparent 52%)}
+.hero::after{content:"";position:absolute;width:520px;height:520px;right:-180px;top:-220px;border-radius:50%;background:radial-gradient(circle,rgba(30,120,210,.35),transparent 65%);pointer-events:none}
+.hero .col{position:relative;z-index:1;padding-top:22px;padding-bottom:80px}
+.hero-haut{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:22px}
+.hero-haut img{width:104px;height:auto;display:block}
+.hero-tel{font-weight:600;font-size:15px;color:#fff;text-decoration:none;border:1px solid rgba(255,255,255,.3);border-radius:999px;padding:10px 16px;white-space:nowrap;min-height:44px;display:inline-flex;align-items:center}
+.surtitre{font-family:var(--titre);font-weight:500;font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:#FF8A4C;margin-bottom:8px}
+.hero h1{font-family:var(--titre);font-weight:600;font-size:clamp(34px,7.6vw,50px);line-height:1.05;letter-spacing:-.005em;text-wrap:balance;max-width:17ch}
+.hero .chapo{color:#C9D0DB;font-size:17px;line-height:1.55;max-width:46ch;margin-top:12px}
+
+.choix-types{position:relative;z-index:2;margin-top:-52px}
+.carte{background:var(--surface);border:1px solid var(--ligne);border-radius:var(--r-carte);box-shadow:var(--ombre)}
+.types{list-style:none;overflow:hidden}
+.types li{border-top:1px solid var(--ligne)}
+.types li:first-child{border-top:0}
+.type{all:unset;box-sizing:border-box;cursor:pointer;width:100%;display:grid;grid-template-columns:64px minmax(0,1fr) 20px;align-items:center;gap:16px;padding:16px 18px 16px 16px;transition:background .15s}
+.type:hover{background:#FBFAF7}
+.type:focus-visible{outline:3px solid var(--orange);outline-offset:-3px}
+.age{width:64px;height:64px;border-radius:16px;display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:var(--titre);line-height:1}
+.age b{font-weight:600;font-size:26px;letter-spacing:-.01em}
+.age small{font-family:var(--corps);font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-top:3px}
+.age.e{background:var(--orange);color:#fff}
+.age.a{background:var(--bleu);color:#fff}
+.age.d{background:var(--nuit);color:#fff}
+.type .txt{min-width:0}
+.type .nom{display:block;font-family:var(--titre);font-weight:500;font-size:23px;line-height:1.15}
+.type .qui{display:block;font-size:14.5px;color:var(--second);margin-top:2px}
+.type .des{display:block;font-size:14.5px;color:var(--second);margin-top:6px}
+.type .des strong{color:var(--encre);font-weight:700}
+.type .fl{color:var(--sourd);justify-self:end}
+.plus-list{list-style:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:20px}
+.plus-list li{display:grid;grid-template-columns:36px minmax(0,1fr);gap:12px;align-items:center;padding:14px;border-radius:var(--r);background:var(--surface2);font-size:14.5px;line-height:1.35;color:var(--second)}
+.plus-list li b{display:block;color:var(--encre);font-weight:700;font-size:15px}
+.plus-list .pi{width:36px;height:36px;border-radius:10px;background:var(--surface);display:grid;place-items:center;color:var(--orange)}
+@media (max-width:640px){.plus-list{grid-template-columns:1fr;gap:8px}}
+
+/* ---------- Mise en page du parcours ---------- */
+.etete{position:sticky;top:0;z-index:20;background:rgba(245,243,238,.95);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--ligne);padding-top:env(safe-area-inset-top,0px)}
+.etete .col,.cadre-p{max-width:720px}
+.etete .col{padding-top:10px;padding-bottom:12px}
+.etete-l{display:flex;align-items:center;gap:12px}
+.retour{all:unset;cursor:pointer;flex:none;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:var(--surface);border:1px solid var(--ligne)}
+.retour:focus-visible{outline:3px solid var(--orange);outline-offset:2px}
+.etete-t{min-width:0;flex:1}
+.etete-t small{display:block;font-size:13px;color:var(--second);font-weight:600}
+.etete-t b{display:block;font-family:var(--titre);font-weight:500;font-size:19px;line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.etete-logo{width:44px;height:auto;flex:none}
+.rail{display:flex;gap:5px;margin-top:10px}
+.rail i{flex:1;height:4px;border-radius:4px;background:var(--ligne)}
+.rail i.ok{background:var(--orange)}
+.cadre-p{margin:0 auto;padding:22px max(var(--gout),env(safe-area-inset-right,0px)) 150px max(var(--gout),env(safe-area-inset-left,0px))}
+.aside{display:none}
+@media (min-width:1040px){
+  .etete .col,.cadre-p{max-width:1080px}
+  .cadre-p{display:grid;grid-template-columns:minmax(0,1fr) 330px;gap:36px;align-items:start;padding-bottom:60px}
+  .aside{display:block;position:sticky;top:110px}
+  .barre{display:none!important}
+}
+.titre-e{font-family:var(--titre);font-weight:500;font-size:28px;line-height:1.15;margin-bottom:6px}
+.intro-e{color:var(--second);margin-bottom:20px;max-width:58ch}
+.sous{font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--second);margin:26px 0 10px}
+
+/* formules */
+.formules{display:flex;flex-direction:column;gap:12px}
+.formule{all:unset;box-sizing:border-box;cursor:pointer;display:block;width:100%;background:var(--surface);border:1px solid var(--ligne);border-radius:var(--r-carte);box-shadow:var(--ombre);padding:18px;transition:box-shadow .15s,border-color .15s}
+.formule:hover{border-color:var(--ligne2)}
+.formule:focus-visible{outline:3px solid var(--orange);outline-offset:2px}
+.formule[aria-pressed="true"]{border-color:var(--nuit);box-shadow:0 0 0 1px var(--nuit),var(--ombre)}
+.f-haut{display:flex;justify-content:space-between;align-items:flex-start;gap:14px}
+.f-nom{display:flex;gap:12px;align-items:flex-start;min-width:0}
+.f-nom b{display:block;font-family:var(--titre);font-weight:500;font-size:24px;line-height:1.15}
+.f-nom small{display:block;font-size:14px;color:var(--second)}
+.f-prix{text-align:right;flex:none}
+.f-prix strong{display:block;font-family:var(--titre);font-weight:600;font-size:28px;line-height:1;color:var(--orange-texte)}
+.f-prix small{font-size:13px;color:var(--second)}
+.f-liste{display:flex;flex-direction:column;gap:7px;margin-top:14px;padding-top:14px;border-top:1px solid var(--ligne);font-size:15px}
+.f-liste>span{display:grid;grid-template-columns:18px minmax(0,1fr);gap:8px;align-items:start}
+.f-liste svg{margin-top:3px;color:var(--orange)}
+.f-note{display:inline-block;margin-top:14px;font-size:13.5px;font-weight:600;line-height:1.4;color:var(--bleu);background:var(--bleu-doux);border-radius:8px;padding:5px 10px}
+.radio{width:22px;height:22px;border-radius:50%;border:2px solid var(--ligne2);display:inline-grid;place-items:center;flex:none;margin-top:3px}
+[aria-pressed="true"] .radio{border-color:var(--nuit);background:var(--nuit)}
+[aria-pressed="true"] .radio::after{content:"";width:8px;height:8px;border-radius:50%;background:#fff}
+
+/* calendrier */
+.cal-carte{padding:16px 14px 14px}
+.mois{display:flex;justify-content:space-between;align-items:center;padding:0 2px 10px}
+.mois b{font-family:var(--titre);font-weight:500;font-size:20px}
+.nav{all:unset;cursor:pointer;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;border:1px solid var(--ligne)}
+.nav:focus-visible{outline:3px solid var(--orange);outline-offset:2px}
+.nav[disabled]{opacity:.3;cursor:default}
+.cal{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));row-gap:4px}
+.js{font-size:12px;font-weight:700;color:var(--sourd);text-align:center;padding:4px 0 6px;text-transform:uppercase}
+.js.mer{color:var(--orange-texte)}
+.jour{all:unset;box-sizing:border-box;justify-self:center;width:44px;height:44px;max-width:100%;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:500;font-size:15px;color:#B9B5AC;font-variant-numeric:tabular-nums;position:relative}
+.jour.dispo{cursor:pointer;color:var(--encre);font-weight:700}
+.jour.dispo::after{content:"";position:absolute;bottom:5px;width:4px;height:4px;border-radius:50%;background:var(--ok)}
+.jour.peu::after{background:var(--attention)}
+.jour.mer.dispo{color:var(--orange-texte)}
+.jour.dispo:hover{background:var(--surface2)}
+.jour.dispo:focus-visible{outline:3px solid var(--orange);outline-offset:1px}
+.jour[aria-pressed="true"]{background:var(--nuit)!important;color:#fff!important}
+.jour[aria-pressed="true"]::after{background:#fff}
+.jour.vac.dispo::before{content:"";position:absolute;top:5px;width:14px;height:2px;border-radius:2px;background:var(--bleu);opacity:.75}
+.jour[aria-pressed="true"].vac::before{background:#fff}
+.legende{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:13px;color:var(--second);margin-top:10px;padding:10px 2px 0;border-top:1px solid var(--ligne)}
+.legende span{display:inline-flex;align-items:center;gap:6px}
+.legende i{width:6px;height:6px;border-radius:50%;background:var(--ok)}
+.legende i.o{background:var(--attention)}
+.legende i.v{width:14px;height:3px;border-radius:2px;background:var(--bleu)}
+.legende i.m{width:auto;height:auto;background:none;font-style:normal;font-weight:700;color:var(--orange-texte)}
+.jour-info{display:flex;justify-content:space-between;align-items:baseline;gap:4px 10px;flex-wrap:wrap}
+.jour-info b{font-family:var(--titre);font-weight:500;font-size:20px}
+.jour-info span{font-size:14px;color:var(--second)}
+.heures{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin-top:12px}
+@media (max-width:420px){.heures{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.heure{all:unset;box-sizing:border-box;cursor:pointer;text-align:center;background:var(--surface);border:1px solid var(--ligne);border-radius:12px;padding:12px 4px;min-height:52px;font-weight:700;font-size:17px;font-variant-numeric:tabular-nums;box-shadow:0 1px 2px rgba(9,20,33,.04)}
+.heure small{display:block;font-size:11.5px;font-weight:600;color:var(--attention);margin-top:1px}
+.heure:hover{border-color:var(--ligne2)}
+.heure:focus-visible{outline:3px solid var(--orange);outline-offset:2px}
+.heure[aria-pressed="true"]{background:var(--nuit);border-color:var(--nuit);color:#fff}
+.heure[aria-pressed="true"] small{color:#FFD8B8}
+.alerte{background:var(--attention-doux);border:1px solid #EBCF9E;border-radius:var(--r);padding:14px 16px;font-size:15px;color:#5E3E0B;margin-bottom:12px}
+.alerte b{display:block;font-weight:700;color:#7A4E0C;margin-bottom:4px}
+.alerte ul{padding-left:18px}
+.alerte li{margin:2px 0}
+.alerte a,.alerte button{color:#7A4E0C;font-weight:700}
+.alerte button{all:unset;cursor:pointer;text-decoration:underline;font-weight:700}
+.maj{font-size:13.5px;color:var(--sourd);margin-top:14px}
+
+/* programmes */
+.progs{display:flex;flex-direction:column;gap:10px}
+.prog{all:unset;box-sizing:border-box;cursor:pointer;display:grid;grid-template-columns:minmax(0,1fr) 22px;gap:10px 14px;width:100%;background:var(--surface);border:1px solid var(--ligne);border-radius:var(--r-carte);padding:16px;box-shadow:var(--ombre)}
+.prog:hover{border-color:var(--ligne2)}
+.prog:focus-visible{outline:3px solid var(--orange);outline-offset:2px}
+.prog[aria-pressed="true"]{border-color:var(--nuit);box-shadow:0 0 0 1px var(--nuit),var(--ombre)}
+.prog .p-nom{font-weight:700;font-size:17px;line-height:1.3}
+.prog .radio{grid-column:2;grid-row:1}
+.frise{grid-column:1/-1;display:flex;gap:3px;height:10px}
+.frise span{border-radius:3px}
+.acts{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:4px 14px;font-size:14px;color:var(--second)}
+.acts span{display:inline-flex;align-items:center;gap:6px}
+.acts span::before{content:"";width:8px;height:8px;border-radius:2px;background:var(--c)}
+.prog-pied{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:6px}
+.pastille{font-size:13px;font-weight:600;border-radius:999px;padding:3px 10px;background:var(--surface2);color:var(--second)}
+.pastille.or{background:var(--attention-doux);color:#7A4E0C}
+
+/* champs */
+.groupe{padding:18px;display:flex;flex-direction:column;gap:14px;margin-bottom:12px}
+.groupe h3{font-family:var(--titre);font-weight:500;font-size:19px;line-height:1.2}
+.deux{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+@media (max-width:520px){.deux{grid-template-columns:1fr}}
+.c{display:flex;flex-direction:column;gap:6px;font-size:14.5px;font-weight:600;min-width:0}
+.c em{font-style:normal;font-weight:400;color:var(--second);font-size:13.5px;line-height:1.4}
+input,select,textarea{font:inherit;font-size:16px;font-weight:500;color:var(--encre);background:var(--fond);border:1px solid #9C9486;border-radius:var(--r);padding:12px 14px;width:100%;min-width:0;min-height:48px;transition:border-color .15s,background .15s}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--orange);background:#fff}
+input[aria-invalid="true"]{border-color:#C9822A;background:#FFFBF3}
+textarea{min-height:96px;resize:vertical;line-height:1.45}
+.compteur{display:flex;align-items:center;justify-content:space-between;gap:12px;background:var(--fond);border:1px solid var(--ligne2);border-radius:var(--r);padding:6px}
+.compteur button{all:unset;cursor:pointer;width:46px;height:46px;border-radius:11px;display:grid;place-items:center;background:var(--surface);border:1px solid var(--ligne);color:var(--encre)}
+.compteur button:focus-visible{outline:3px solid var(--orange);outline-offset:1px}
+.compteur button:active{transform:scale(.94)}
+.compteur button[disabled]{opacity:.35;cursor:default}
+.compteur input{border:0;background:transparent;text-align:center;font-family:var(--titre);font-size:26px;font-weight:500;padding:0;width:80px;min-height:0;-moz-appearance:textfield}
+.compteur input::-webkit-inner-spin-button,.compteur input::-webkit-outer-spin-button{-webkit-appearance:none;margin:0}
+.puces{display:flex;flex-wrap:wrap;gap:8px}
+.puce{all:unset;box-sizing:border-box;cursor:pointer;padding:10px 16px;min-height:44px;display:inline-flex;align-items:center;border-radius:999px;border:1px solid var(--ligne2);background:var(--surface);font-weight:600;font-size:15px}
+.puce:focus-visible{outline:3px solid var(--orange);outline-offset:2px}
+.puce[aria-pressed="true"]{background:var(--nuit);border-color:var(--nuit);color:#fff}
+.option{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:12px;padding:12px 0;border-top:1px solid var(--ligne)}
+.option.premier{border-top:0;padding-top:0}
+.option b{display:block;font-weight:600;font-size:15px}
+.option span{font-size:13.5px;color:var(--second)}
+.mini{display:flex;align-items:center;gap:6px}
+.mini button{all:unset;cursor:pointer;width:44px;height:44px;border-radius:10px;display:grid;place-items:center;background:var(--fond);border:1px solid var(--ligne2);font-size:19px;line-height:1}
+.mini button:focus-visible{outline:3px solid var(--orange);outline-offset:1px}
+.mini button[disabled]{opacity:.35;cursor:default}
+.mini output{min-width:24px;text-align:center;font-weight:700;font-variant-numeric:tabular-nums}
+.case{display:grid;grid-template-columns:22px minmax(0,1fr);gap:12px;align-items:start;font-size:15px;cursor:pointer}
+.case input{width:20px;height:20px;min-height:0;margin-top:2px;padding:0;accent-color:var(--orange)}
+.case b{font-weight:600}
+.compte{font-size:12.5px;color:var(--sourd);text-align:right;font-weight:500}
+.piege{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.suggest{font-size:14px;color:#7A4E0C;font-weight:500}
+.suggest button{all:unset;cursor:pointer;text-decoration:underline;font-weight:700}
+.rgpd{font-size:13.5px;color:var(--second);line-height:1.5}
+.rgpd a,.aide-a a,footer a,.alerte a{color:var(--bleu);font-weight:600;white-space:nowrap}
+
+/* récapitulatif */
+.recap{overflow:hidden}
+.recap-haut{background:var(--nuit);color:#fff;padding:20px 20px 22px;position:relative}
+.recap-haut small{font-family:var(--titre);font-weight:500;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#FF8A4C}
+.recap-haut b{display:block;font-family:var(--titre);font-weight:500;font-size:26px;line-height:1.15;margin-top:4px}
+.recap-haut p{color:#C9D0DB;font-size:15px;margin-top:4px}
+.recap-haut::after{content:"";position:absolute;left:0;right:0;bottom:-7px;height:14px;background:radial-gradient(circle at 7px 7px,var(--surface) 6px,transparent 6.5px) 0 0/14px 14px repeat-x}
+.recap-corps{padding:22px 20px 18px}
+.bloc-r{padding:12px 0;border-top:1px solid var(--ligne)}
+.bloc-r:first-child{border-top:0;padding-top:0}
+.bloc-r .tt{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin-bottom:4px}
+.bloc-r .tt b{font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--second)}
+.bloc-r .tt button{all:unset;cursor:pointer;font-size:14px;font-weight:700;color:var(--bleu);text-decoration:underline;padding:12px 4px;margin:-12px -4px}
+.bloc-r p{font-size:15.5px;line-height:1.5}
+.ligne{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:5px 0;font-size:15.5px}
+.ligne span:first-child{color:var(--second);min-width:0}
+.ligne span:last-child{font-weight:600;white-space:nowrap;font-variant-numeric:tabular-nums}
+.ligne.moins span:last-child{color:#237049}
+.total{border-top:1px solid var(--ligne);margin-top:8px;padding-top:12px}
+.total span:first-child{color:var(--encre)!important;font-weight:700}
+.total span:last-child{font-family:var(--titre);font-weight:600;font-size:26px}
+.acompte{background:var(--orange-doux);border-radius:12px;padding:12px 14px;margin-top:10px}
+.acompte span:first-child{color:var(--orange-texte)!important;font-weight:600}
+.acompte span:last-child{color:var(--orange-texte)}
+.etapes-suite{list-style:none;display:flex;flex-direction:column;gap:12px;margin-top:6px}
+.etapes-suite li{display:grid;grid-template-columns:28px minmax(0,1fr);gap:12px;font-size:15px;color:var(--second)}
+.etapes-suite i{font-style:normal;width:28px;height:28px;border-radius:50%;background:var(--bleu-doux);color:var(--bleu);font-weight:700;font-size:14px;display:grid;place-items:center}
+.etapes-suite b{color:var(--encre);font-weight:600}
+
+/* merci */
+.merci{text-align:center;padding:34px 22px}
+.merci .rond{width:72px;height:72px;border-radius:50%;background:var(--orange);display:grid;place-items:center;margin:0 auto 18px;box-shadow:var(--ombre-cta)}
+.merci h2{font-family:var(--titre);font-weight:500;font-size:30px;line-height:1.15}
+.merci p{color:var(--second);margin:10px auto 0;max-width:46ch}
+.merci .actions{display:flex;flex-direction:column;gap:10px;align-items:center;margin-top:22px}
+.lien-b{cursor:pointer;font-weight:700;color:var(--bleu);text-decoration:underline;padding:8px 2px}
+.btn2{all:unset;box-sizing:border-box;cursor:pointer;padding:13px 20px;border-radius:var(--r);border:1px solid var(--ligne2);background:var(--surface);font-weight:700;min-height:48px}
+
+/* bouton principal (barre basse et colonne) */
+.cta{all:unset;box-sizing:border-box;cursor:pointer;flex:none;background:var(--orange);color:#fff;font-weight:700;font-size:19px;line-height:1.2;padding:13px 22px;min-height:52px;display:inline-flex;align-items:center;justify-content:center;border-radius:var(--r);box-shadow:var(--ombre-cta);text-align:center;transition:background .15s,transform .09s}
+.cta:hover{background:var(--orange-fonce)}
+.cta:active{transform:scale(.97)}
+.cta:focus-visible{outline:3px solid var(--nuit);outline-offset:2px}
+.cta[aria-disabled="true"]{background:var(--ligne);color:#6E7480;box-shadow:none;cursor:default}
+.barre{position:fixed;left:0;right:0;bottom:0;z-index:30;background:rgba(255,255,255,.97);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-top:1px solid var(--ligne);padding-bottom:env(safe-area-inset-bottom,0px)}
+.barre .col{display:flex;align-items:center;gap:12px;padding-top:12px;padding-bottom:12px}
+.resume{flex:1;min-width:0;line-height:1.25}
+.resume b{display:block;font-family:var(--titre);font-weight:500;font-size:21px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.resume span{display:block;font-size:13.5px;color:var(--second);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+@media (max-width:414px){.resume span{font-size:12.5px}}
+@media (max-width:360px){.barre .cta{font-size:18.7px;padding:12px 12px}.resume b{font-size:17px}.barre .col{gap:8px}}
+.aside .carte{padding:20px}
+.aside h3{font-family:var(--titre);font-weight:500;font-size:20px;margin-bottom:12px}
+.aside dl{display:grid;grid-template-columns:auto minmax(0,1fr);gap:8px 14px;font-size:15px;margin-bottom:16px}
+.aside dt{color:var(--second)}
+.aside dd{font-weight:600;text-align:right}
+.aside .prix-a{display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid var(--ligne);padding-top:12px;margin-bottom:16px}
+.aside .prix-a b{font-family:var(--titre);font-weight:600;font-size:26px}
+.aside .cta{width:100%}
+.aside .aide-a{font-size:13.5px;color:var(--second);margin-top:14px}
+
+footer{padding:26px 0 40px;color:var(--second);font-size:14.5px;border-top:1px solid var(--ligne);margin-top:22px}
+footer b{display:block;color:var(--encre);font-family:var(--titre);font-weight:500;font-size:17px;margin-bottom:4px}
+footer a{color:inherit}
+</style>
+
+<!-- ===== Accueil ===== -->
+<div id="accueil">
+  <header class="hero">
+    <div class="col">
+      <div class="hero-haut">
+        <img src="logo.png" alt="Espace 360, parc de loisirs" width="104" height="91">
+        <a class="hero-tel" href="tel:+33258474747">02 58 47 47 47</a>
+      </div>
+      <p class="surtitre">Anniversaires & fêtes</p>
+      <h1>Votre fête à Espace 360, demandée en 3 minutes</h1>
+      <p class="chapo">Trampoline, laser game, bowling, escalade, karaoké : choisissez la formule, le jour et les activités parmi les créneaux encore libres.</p>
+    </div>
+  </header>
+  <div class="col choix-types">
+    <h2 class="vh">Pour qui est la fête ?</h2>
+    <ul class="carte types" id="types"></ul>
+    <ul class="plus-list">
+      <li><span class="pi"><svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path d="M3 9h14v8H3zM2 6h16v3H2zM10 6v11M10 6c-1-3-5-3-5-1s3 1 5 1c2 0 5 1 5-1s-4-2-5 1" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></span><span><b>Pour les enfants, tout est fourni</b>Gâteau, bonbons, popcorn, sirop et cartons d'invitation</span></li>
+      <li><span class="pi"><svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path d="M2 16h16M4 16V8h12v8M7 8V5h6v3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></span><span><b>Un espace rien qu'à vous</b>Le goûter se prend dans un espace réservé au groupe</span></li>
+      <li><span class="pi"><svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><circle cx="7" cy="6" r="2.6" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="14" cy="7" r="2.1" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M2.5 17c0-3 2-5 4.5-5s4.5 2 4.5 5M12 12.3c2.6-.4 5 1.4 5 4.7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span><span><b>Parents bienvenus</b>Les accompagnateurs ne paient pas et restent pendant la fête</span></li>
+    </ul>
+  </div>
+  <footer class="col">
+    <b>Espace 360 Cormeilles</b>
+    1 Bd du Parisis, ZAC des Bois Rochefort, 95240 Cormeilles-en-Parisis<br>
+    Gare de Cormeilles-en-Parisis (ligne J) · 1 000 places de parking gratuites<br>
+    <a href="tel:+33258474747">02 58 47 47 47</a>
+  </footer>
+</div>
+
+<!-- ===== Parcours ===== -->
+<div id="parcours" hidden>
+  <div class="etete">
+    <div class="col">
+      <div class="etete-l">
+        <button class="retour" id="retour" aria-label="Étape précédente"><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M11 3L5 9l6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="etete-t"><small id="etapeNum"></small><b id="etapeTitre"></b></div>
+        <img class="etete-logo" src="logo.png" alt="" width="44" height="38">
+      </div>
+      <div class="rail" id="rail" aria-hidden="true"></div>
+    </div>
+  </div>
+
+  <div class="cadre-p">
+  <main>
+    <section class="ecran" data-e="formule">
+      <h2 class="titre-e" tabindex="-1">Quelle formule ?</h2>
+      <p class="intro-e" id="formuleIntro"></p>
+      <div class="formules" id="formules"></div>
+    </section>
+
+    <section class="ecran" data-e="jour">
+      <h2 class="titre-e" tabindex="-1">Le jour et l'heure</h2>
+      <p class="intro-e" id="jourIntro"></p>
+      <div class="alerte" id="dispoErreur" role="alert" hidden><b>Le calendrier ne s'affiche pas pour le moment.</b>Appelez-nous au <a href="tel:+33258474747">02 58 47 47 47</a>, ou <button type="button" id="reessai">réessayez</button>.</div>
+      <div class="alerte" id="dispoVieux" hidden><b>Disponibilités à confirmer</b>Ces créneaux datent de plus de 6 heures : Lyna vous confirmera le vôtre.</div>
+      <div class="carte cal-carte" id="calCarte">
+        <div class="mois"><button class="nav" id="prev" aria-label="Mois précédent"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M10 3L5 8l5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button><b id="moisNom" aria-live="polite"></b><button class="nav" id="next" aria-label="Mois suivant"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button></div>
+        <div class="cal" id="cal"></div>
+        <div class="legende" id="legende"></div>
+      </div>
+      <div id="heuresBloc" hidden>
+        <p class="sous">Horaire</p>
+        <div class="jour-info"><b id="jourChoisi"></b><span id="jourAide"></span></div>
+        <div class="heures" id="heures"></div>
+      </div>
+      <p class="maj" id="maj"></p>
+    </section>
+
+    <section class="ecran" data-e="prog">
+      <h2 class="titre-e" tabindex="-1">Les activités</h2>
+      <p class="intro-e" id="progAide"></p>
+      <div class="progs" id="programmes"></div>
+    </section>
+
+    <section class="ecran" data-e="infos">
+      <h2 class="titre-e" tabindex="-1">Vos informations</h2>
+      <p class="intro-e">Elles servent à Lyna pour vous répondre et préparer la fête.</p>
+      <div class="alerte" id="manque" role="alert" hidden></div>
+      <div class="carte groupe" id="evBox">
+        <h3>C'est pour…</h3>
+        <div class="puces" id="evs" role="group" aria-label="Type d'événement"></div>
+      </div>
+      <div class="carte groupe">
+        <h3 id="tFete"></h3>
+        <div class="deux">
+          <label class="c"><span id="lPrenom"></span><input id="prenom" autocomplete="off" maxlength="40"></label>
+          <label class="c">Nom de famille<input id="nom" autocomplete="family-name" maxlength="40"></label>
+        </div>
+        <label class="c" id="ageBox"><span>Âge qu'il ou elle va fêter</span><input id="age" type="number" min="3" max="18" step="1" inputmode="numeric"></label>
+        <div class="c"><span id="lNb"></span>
+          <span class="compteur"><button type="button" data-pas="-1" aria-label="Un de moins"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button><input id="nb" type="number" min="8" max="24" step="1" inputmode="numeric" value="10" aria-labelledby="lNb" aria-describedby="nbAide"><button type="button" data-pas="1" aria-label="Un de plus"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M8 3v10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button></span>
+          <em id="nbAide"></em></div>
+      </div>
+      <div class="carte groupe">
+        <h3>Pour vous joindre</h3>
+        <label class="c"><span id="lParent"></span><input id="parent" autocomplete="given-name" maxlength="40"></label>
+        <div class="deux">
+          <label class="c">Téléphone<input id="tel" type="tel" autocomplete="tel" inputmode="tel"></label>
+          <label class="c">E-mail<input id="email" type="email" autocomplete="email" inputmode="email" aria-describedby="emailAide"><span class="suggest" id="emailAide" hidden></span></label>
+        </div>
+      </div>
+      <div class="carte groupe">
+        <h3 id="tOptions"></h3>
+        <div id="optsEnfant">
+          <label class="c" style="margin-bottom:14px">Gâteau<select id="gateau"></select><em id="gateauAide"></em></label>
+          <div class="option"><div><b>Pizzas Margarita</b><span id="pizzasAide"></span></div><div class="mini" data-champ="pizzas"><button type="button" data-d="-1" aria-label="Une pizza de moins">−</button><output id="pizzas" aria-live="polite">0</output><button type="button" data-d="1" aria-label="Une pizza de plus">+</button></div></div>
+          <div class="option"><div><b>Champomy</b><span id="champomyAide"></span></div><div class="mini" data-champ="champomy"><button type="button" data-d="-1" aria-label="Une bouteille de moins">−</button><output id="champomy" aria-live="polite">0</output><button type="button" data-d="1" aria-label="Une bouteille de plus">+</button></div></div>
+          <div class="option" id="animBox"><label class="case" style="grid-column:1/-1"><input type="checkbox" id="anim"><span><b>Animateur dédié</b> pendant toute la fête · <span id="animPrix"></span></span></label></div>
+        </div>
+        <div id="optsAdulte" hidden>
+          <p class="rgpd" id="tartesAvant" hidden>Les tartes en option sont proposées pour les fêtes à partir du 5 novembre. Pour une date plus proche, demandez à Lyna dans votre message.</p>
+          <div id="tartes">
+            <div class="option premier"><div><b>Tarte au citron meringuée</b><span id="tcAide"></span></div><div class="mini" data-champ="tc"><button type="button" data-d="-1" aria-label="Une tarte au citron de moins">−</button><output id="tc" aria-live="polite">0</output><button type="button" data-d="1" aria-label="Une tarte au citron de plus">+</button></div></div>
+            <div class="option"><div><b>Tarte aux pommes</b><span id="tpAide"></span></div><div class="mini" data-champ="tp"><button type="button" data-d="-1" aria-label="Une tarte aux pommes de moins">−</button><output id="tp" aria-live="polite">0</output><button type="button" data-d="1" aria-label="Une tarte aux pommes de plus">+</button></div></div>
+          </div>
+        </div>
+      </div>
+      <div class="carte groupe">
+        <label class="c">Un mot pour Lyna <em>Décoration, horaire d'arrivée, question… (facultatif). Merci de ne pas indiquer ici d'information de santé : Lyna vous posera les questions utiles en confirmant.</em><textarea id="question" maxlength="1500"></textarea></label>
+        <p class="compte" id="compte" aria-live="polite"></p>
+        <label class="piege" aria-hidden="true">Site web<input id="siteweb" tabindex="-1" autocomplete="off"></label>
+        <p class="rgpd">Vos coordonnées servent uniquement à traiter cette demande et à organiser la fête. Elles transitent par un formulaire Google avant d'arriver chez Lyna. Pour toute question sur vos données : <a href="tel:+33258474747">02 58 47 47 47</a>.</p>
+      </div>
+    </section>
+
+    <section class="ecran" data-e="recap">
+      <h2 class="titre-e" tabindex="-1">Votre demande</h2>
+      <p class="intro-e">Vérifiez, puis envoyez. Rien n'est à payer maintenant.</p>
+      <div class="carte recap"><div class="recap-haut" id="recapHaut"></div><div class="recap-corps" id="recap"></div></div>
+      <div class="alerte" id="envoiErreur" role="alert" hidden><b>La demande n'est pas partie.</b>Vérifiez votre connexion internet et appuyez à nouveau sur « Envoyer ma demande ». Si ça ne passe toujours pas : <a href="tel:+33258474747">02 58 47 47 47</a>.</div>
+      <p class="sous">Et ensuite ?</p>
+      <ol class="etapes-suite">
+        <li id="etape1"><i>1</i><span><b>Une page Google s'ouvre et confirme la réception.</b> Vous pouvez la fermer.</span></li>
+        <li><i>2</i><span><b>Lyna vous répond par e-mail sous 48&nbsp;h ouvrées</b> (du mardi au samedi) avec la confirmation du créneau et un lien de paiement sécurisé pour l'acompte.</span></li>
+        <li><i>3</i><span><b>La réservation est définitive à réception de l'acompte.</b> Le solde se règle sur place : carte bancaire, espèces, chèques ANCV ou ANCV Connect.</span></li>
+      </ol>
+    </section>
+
+    <section class="ecran carte merci" data-e="merci">
+      <div class="rond"><svg width="34" height="34" viewBox="0 0 34 34" aria-hidden="true"><path d="M8 17.5l6 6L26 11" fill="none" stroke="#fff" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <h2 tabindex="-1">Demande envoyée</h2>
+      <p id="merciTexte"></p>
+      <div class="actions">
+        <button type="button" class="btn2" id="nouvelle">Faire une autre demande</button>
+        <p style="font-size:14px;margin:0" id="renvoiP">La page Google ne s'est pas ouverte ? <a class="lien-b" id="renvoi" target="_blank" rel="noopener">Renvoyer la demande</a></p>
+      </div>
+    </section>
+  </main>
+
+  <aside class="aside" aria-label="Votre sélection">
+    <div class="carte">
+      <h3>Votre fête</h3>
+      <dl id="asideDl"></dl>
+      <div class="prix-a"><span id="asidePrixL">Total estimé</span><b id="asidePrix" class="tab"></b></div>
+      <a class="cta" data-cta role="button" tabindex="0">Continuer</a>
+      <p class="aide-a">Une question ? <a href="tel:+33258474747">02 58 47 47 47</a></p>
+    </div>
+  </aside>
+  </div>
+
+  <div class="barre"><div class="col"><div class="resume" id="resume"></div><a class="cta" data-cta role="button" tabindex="0">Continuer</a></div></div>
+</div>
+
+<script>
+(function(){
+const pad=n=>String(n).padStart(2,'0'),dStr=d=>d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate());
+const TODAY=dStr(new Date()),AVANT=TODAY<='2026-10-31';
+const $=id=>document.getElementById(id),CTAS=[...document.querySelectorAll('[data-cta]')];
+const eur=n=>{const v=Math.round(n*100)/100;return(Math.round(v*100)%100?v.toLocaleString('fr-FR',{minimumFractionDigits:2,maximumFractionDigits:2}):v.toLocaleString('fr-FR'))+' €';};
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'})[c]);
+const de=s=>(/^[aeiouyhàâäéèêëîïôöûüœ]/i.test(s)?'d’':'de ')+s;
+const maj1=s=>s.charAt(0).toUpperCase()+s.slice(1);
+const COCHE='<svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+const store={get(){try{return JSON.parse(sessionStorage.getItem('e360-fete')||'null');}catch(e){return null;}},set(v){try{sessionStorage.setItem('e360-fete',JSON.stringify(v));}catch(e){}},del(){try{sessionStorage.removeItem('e360-fete');}catch(e){}}};
+
+/* ---- Offre : mêmes chiffres et mêmes règles que l'outil de Lyna (tarifs du 1er novembre ; prix d'avant pour les demandes faites jusqu'au 31/10) ---- */
+const TYPES={
+  enfant:{nom:'Enfants',age:['3','ans +'],cl:'e',qui:'Mini Buzz, Adventure Mars ou Cosmos VIP',par:'enfant',formules:['minibuzz','adventure','cosmos']},
+  ado:{nom:'Ados',age:['12','à 18 ans'],cl:'a',qui:'Entre amis, en fin de journée',par:'personne',formules:['ado']},
+  adulte:{nom:'Adultes',age:['18','ans +'],cl:'d',qui:'Anniversaire, EVG ou EVJF · dès 6 personnes',par:'personne',formules:['adulte']}
+};
+const FORMULES={
+  minibuzz:{nom:'Mini Buzz',age:'3 à 7 ans',prix:25,ages:[3,7],inclus:['Trampoline et plaine de jeux','Goûter de 30 min dans un espace réservé','Cartons d\'invitation fournis'],note:'20 € par enfant le mercredi'},
+  adventure:{nom:'Adventure Mars',age:'Dès 7 ans',prix:30,ages:[7,17],inclus:['Deux activités au choix, ou 1 h 30 d\'escalade','Option Quiz Room dès 8 ans','Goûter de 30 min et cartons d\'invitation'],note:'24 € par enfant le mercredi'},
+  cosmos:{nom:'Cosmos VIP',age:'Dès 7 ans',prix:AVANT?45:55,ages:[7,17],inclus:['Trois activités, dont le laser game','Un animateur dédié pendant toute la fête','Sachet de bonbons et bon laser game pour chaque invité','Goûter de 30 min et cartons d\'invitation'],note:'Le mercredi, la place de l\'enfant fêté est offerte'},
+  ado:{nom:'Ado',age:'12 à 18 ans',prix:35,ages:[12,18],inclus:['Deux activités au choix : laser game, bowling, fléchettes, karaoké','Goûter de 30 min dans un espace réservé','Cartons d\'invitation fournis'],note:'28 € par personne le mercredi'},
+  adulte:{nom:'Adultes',age:'18 ans et plus',prix:35,ages:[18,120],inclus:['Deux activités au choix : laser game, bowling, karaoké, fléchettes, billard, Quiz Room','Une planche apéritive et deux boissons sans alcool par personne, à votre table','Tartes en option'],note:'Pour un EVG ou un EVJF, Lyna peut vous faire une proposition sur mesure'}
+};
+const EVS={anniv:'Un anniversaire',evjf:'Un EVJF',evg:'Un EVG',autre:'Autre chose'};
+const A={trampo:['Trampoline','--c-trampo'],plaine:['Plaine de jeux','--c-plaine'],laser:['Laser game','--c-laser'],bowling:['Bowling','--c-bowling'],karaoke:['Karaoké','--c-karaoke'],escalade:['Escalade','--c-escalade'],quiz:['Quiz Room','--c-quiz'],flechettes:['Fléchettes','--c-flechettes'],billard:['Billard','--c-billard']};
+const COMBOS={M1:[['trampo',60],['plaine',30]],M2:[['trampo',90]],A:[['trampo',60],['laser',20]],B:[['bowling',60],['karaoke',45]],C:[['trampo',60],['karaoke',45]],D:[['bowling',60],['trampo',60]],E:[['bowling',60],['laser',20]],F:[['karaoke',45],['laser',20]],X:[['escalade',90]],Q1:[['quiz',60],['trampo',60]],Q2:[['quiz',60],['laser',20]],Q3:[['quiz',60],['bowling',60]],Q4:[['quiz',60],['karaoke',45]],G:[['laser',20],['bowling',60]],H:[['laser',20],['flechettes',45]],I:[['bowling',60],['flechettes',45]],J:[['karaoke',45],['flechettes',45]],K1:[['trampo',60],['escalade',45],['laser',20]],K2:[['trampo',60],['bowling',60],['laser',20]],K3:[['trampo',60],['karaoke',45],['laser',20]],K4:[['bowling',60],['escalade',45],['laser',20]],P1:[['laser',20],['bowling',60]],P2:[['laser',20],['karaoke',45]],P3:[['bowling',60],['karaoke',45]],P4:[['flechettes',45],['billard',45]],P5:[['quiz',45],['laser',20]]};
+const dureeTxt=m=>m>=60?(Math.floor(m/60)+' h'+(m%60?' '+pad(m%60):'')):m+' min';
+const nomCombo=c=>c==='M2'?'Trampoline 1 h 30':c==='X'?'Spécial escalade 1 h 30':COMBOS[c].map(([k,m])=>A[k][0]+(k==='laser'?'':' '+dureeTxt(m))).join(' + ');
+const ANIM=AVANT?90:120;
+/* capacités : 22 joueurs au plus au laser game (2 gilets en réserve), 18 en Quiz Room */
+const plafond=c=>{const a=(COMBOS[c]||[]).map(x=>x[0]);return a.includes('quiz')?18:a.includes('laser')?22:24;};
+
+/* ---- Horaires (espace360.net/cormeilles/horaires) ----
+   Hors vacances : lundi fermé ; mardi et jeudi 17h-minuit ; mercredi 10h-minuit ; vendredi 17h-1h ; samedi 10h-1h ; dimanche 10h-22h.
+   Vacances de la zone C : tous les jours dès 10h. La fête doit finir avant la fermeture. Réservation close quand les gâteaux sont commandés
+   (le mardi, au moins 2 jours avant la fête, avant midi), comme dans l'outil. */
+const VACANCES=[['2026-10-17','2026-11-01'],['2026-12-19','2027-01-03'],['2027-02-06','2027-02-21'],['2027-04-03','2027-04-18']];
+const FERMES=['2026-11-01'];
+const enVacances=ds=>VACANCES.some(v=>ds>=v[0]&&ds<=v[1]);
+const jourSem=ds=>new Date(ds+'T12:00').getDay();
+const plusJ=(ds,n)=>{const d=new Date(ds+'T12:00');d.setDate(d.getDate()+n);return dStr(d);};
+const mn=h=>{const [a,b]=h.split(':').map(Number);return a*60+b;};
+function horaires(ds){if(FERMES.includes(ds))return null;const j=jourSem(ds),vac=enVacances(ds);if(!vac&&j===1)return null;
+  return [vac||[0,3,6].includes(j)?600:1020, j===0?1320:(j===5||j===6)?1500:1440];}
+function commande(ds){let d=plusJ(ds,-2);for(let i=0;i<7&&jourSem(d)!==2;i++)d=plusJ(d,-1);return d;}
+const pomona=ds=>!!ds&&commande(ds)>='2026-11-03';
+function closeParGateaux(ds){const c=commande(ds);if(TODAY>c)return true;if(TODAY<c)return false;return new Date().getHours()>=12;}
+const dureeFete=(f,c)=>(COMBOS[c]||[]).reduce((t,a)=>t+a[1],0)+(f==='adulte'?45:30)+15;
+function creneaux(ds,L,f){const H=horaires(ds);if(!H||closeParGateaux(ds))return[];
+  return (L||[]).map(x=>[x[0],x[1].filter(c=>COMBOS[c]&&mn(x[0])+dureeFete(f,c)<=H[1]),x[2]]).filter(x=>mn(x[0])>=H[0]&&x[1].length);}
+
+const S={t:null,f:null,d:null,h:null,c:null,ev:'anniv',mois:null,data:null,err:false,e:'accueil',vu:false,nbVu:false,envoye:0};
+const OUVERT_A=Date.now();
+const MIN_N=()=>S.f==='adulte'?6:8;
+const MAX_N=()=>S.c?plafond(S.c):24;
+const nbVal=()=>Number($('nb').value)||0, cpt=id=>Number($(id).value)||0;
+const quiP=()=>S.t==='enfant'?'enfants':S.t==='ado'?'participants':'personnes';
+const CHAMPS=['prenom','nom','age','nb','parent','tel','email','question','gateau'];
+
+/* ---- Écrans et historique du navigateur ---- */
+const parcours=()=>['formule','jour','prog','infos','recap'];
+function aller(e,hist){
+  if(hist!=='non'){try{history[hist==='remplacer'?'replaceState':'pushState']({e},'');}catch(x){}}
+  S.e=e;if(e==='infos')S.nbVu=true;
+  $('accueil').hidden=e!=='accueil';$('parcours').hidden=e==='accueil';
+  document.querySelectorAll('[data-e]').forEach(s=>{const on=s.dataset.e===e;s.hidden=!on;if(on){s.classList.remove('ecran');void s.offsetWidth;s.classList.add('ecran');}});
+  window.scrollTo(0,0);rendu();
+  const h=e==='accueil'?null:document.querySelector(`[data-e="${e}"] h2`);if(h&&S.pret)setTimeout(()=>h.focus({preventScroll:true}),30);
+}
+window.addEventListener('popstate',ev=>{const e=ev.state&&ev.state.e;if(!e)return aller('accueil','non');if(e==='merci'||(e!=='accueil'&&!S.t))return aller('accueil','non');aller(e,'non');});
+$('retour').onclick=()=>history.back();
+
+/* ---- Accueil ---- */
+const FLECHE='<svg class="fl" width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path d="M7 4l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+$('types').innerHTML=Object.entries(TYPES).map(([k,t])=>`<li><button class="type" data-t="${k}"><span class="age ${t.cl}" aria-hidden="true"><b>${t.age[0]}</b><small>${t.age[1]}</small></span><span class="txt"><span class="nom">${t.nom}</span><span class="qui">${t.qui}</span><span class="des">À partir de <strong>${Math.min(...t.formules.map(f=>FORMULES[f].prix))} €</strong> par ${t.par}</span></span>${FLECHE}</button></li>`).join('');
+function zeroOptions(){['pizzas','champomy','tc','tp'].forEach(id=>{$(id).value=0;$(id).textContent='0';});$('anim').checked=false;}
+$('types').addEventListener('click',e=>{const b=e.target.closest('[data-t]');if(!b)return;
+  if(S.t!==b.dataset.t){S.t=b.dataset.t;const T=TYPES[S.t];S.f=T.formules.length===1?T.formules[0]:null;S.d=S.h=S.c=null;S.mois=null;S.nbVu=false;S.ev='anniv';$('nb').value=S.t==='adulte'?8:10;zeroOptions();}
+  formules();aller('formule');});
+
+/* ---- Formules ---- */
+function formules(){const T=TYPES[S.t];
+  $('formuleIntro').textContent=S.t==='adulte'?'Ce qui est compris dans la formule adultes.':S.t==='ado'?'Ce qui est compris dans la formule ado.':'Toutes comprennent les activités, le goûter dans un espace réservé à votre groupe et les cartons d\'invitation.';
+  $('formules').innerHTML=T.formules.map(k=>{const f=FORMULES[k];
+  return `<button class="formule" data-f="${k}" aria-pressed="${S.f===k}"><span class="f-haut"><span class="f-nom"><span class="radio"></span><span><b>${f.nom}</b><small>${f.age}</small></span></span><span class="f-prix"><strong>${f.prix} €</strong><small>par ${k==='adulte'||k==='ado'?'personne':'enfant'}</small></span></span><span class="f-liste">${f.inclus.map(x=>`<span>${COCHE}<span>${x}</span></span>`).join('')}</span><span class="f-note">${f.note}</span></button>`}).join('');}
+$('formules').addEventListener('click',e=>{const b=e.target.closest('[data-f]');if(!b)return;if(S.f!==b.dataset.f){S.f=b.dataset.f;S.d=S.h=S.c=null;S.mois=null;}rendu();suivant('formule');});
+/* un choix fait passer tout seul à l'écran suivant (le temps de voir la sélection) */
+function suivant(e){clearTimeout(S.auto);S.auto=setTimeout(()=>{if(S.e===e){const P=parcours();aller(P[P.indexOf(e)+1]);}},280);}
+
+/* ---- Calendrier ---- */
+const MOIS=['janvier','février','mars','avril','mai','juin','juillet','août','septembre','octobre','novembre','décembre'];
+function etatJour(ds){if(!S.data||!S.f)return'';const J=S.data.jours[ds];if(!J||J.ferme)return'';const L=creneaux(ds,J[S.f],S.f);if(!L.length)return'';return L.some(x=>x[2])?'dispo':'dispo peu';}
+function moisDispo(){return S.data?[...new Set(Object.keys(S.data.jours).map(d=>d.slice(0,7)))].sort():[];}
+const fmtJour=ds=>new Date(ds+'T12:00').toLocaleDateString('fr-FR',{weekday:'long',day:'numeric',month:'long'});
+const fmtCourt=ds=>new Date(ds+'T12:00').toLocaleDateString('fr-FR',{weekday:'short',day:'numeric',month:'short'});
+const hFr=h=>h.replace(':00','h').replace(':','h');
+function calendrier(){
+  const [y,m]=S.mois.split('-').map(Number);$('moisNom').textContent=maj1(MOIS[m-1])+' '+y;
+  const dec=(new Date(y,m-1,1).getDay()+6)%7,nbJ=new Date(y,m,0).getDate(),remise=S.f&&S.f!=='adulte';
+  let h=['lun','mar','mer','jeu','ven','sam','dim'].map((x,i)=>`<span class="js${remise&&i===2?' mer':''}" aria-hidden="true">${x}</span>`).join('');
+  for(let i=0;i<dec;i++)h+='<span></span>';
+  for(let d=1;d<=nbJ;d++){const ds=y+'-'+pad(m)+'-'+pad(d),e=etatJour(ds),mer=remise&&jourSem(ds)===3,cl=(enVacances(ds)?' vac':'')+(mer?' mer':'');
+    h+=e?`<button class="jour ${e}${cl}" data-d="${ds}" aria-pressed="${S.d===ds}" aria-label="${fmtJour(ds)}${mer?', tarif du mercredi':''}${e.includes('peu')?', moins de 20 '+quiP():''}">${d}</button>`:`<span class="jour${cl}" aria-hidden="true">${d}</span>`;}
+  $('cal').innerHTML=h;const ms=moisDispo(),i=ms.indexOf(S.mois);$('prev').disabled=i<=0;$('next').disabled=i<0||i>=ms.length-1;
+  $('legende').innerHTML=`<span><i></i>Places libres</span><span><i class="o"></i>Moins de 20 ${quiP()}</span><span><i class="v"></i>Vacances scolaires</span>${remise?`<span><i class="m">Mer.</i>${S.f==='cosmos'?'Place de l\'enfant fêté offerte':'Tarif réduit'}</span>`:''}`;
+}
+$('prev').onclick=()=>{const ms=moisDispo(),i=ms.indexOf(S.mois);if(i>0){S.mois=ms[i-1];calendrier();}};
+$('next').onclick=()=>{const ms=moisDispo(),i=ms.indexOf(S.mois);if(i<ms.length-1){S.mois=ms[i+1];calendrier();}};
+$('cal').addEventListener('click',e=>{const b=e.target.closest('[data-d]');if(!b)return;S.d=b.dataset.d;S.h=S.c=null;rendu();
+  /* les horaires du jour arrivent sous le pouce : on fait défiler jusqu'à eux, sous l'en-tête collant */
+  setTimeout(()=>{const el=$('heuresBloc');if(el.hidden)return;const r=el.getBoundingClientRect(),haut=document.querySelector('.etete').offsetHeight,barre=innerWidth<1040?86:0,manque=r.bottom+barre+10-innerHeight;
+    if(manque>0)window.scrollBy({top:Math.min(manque,r.top-haut-12),behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});},60);});
+$('heures').addEventListener('click',e=>{const b=e.target.closest('[data-h]');if(!b)return;if(S.h!==b.dataset.h){S.h=b.dataset.h;S.c=null;}rendu();suivant('jour');});
+$('programmes').addEventListener('click',e=>{const b=e.target.closest('[data-c]');if(!b)return;S.c=b.dataset.c;rendu();suivant('prog');});
+$('evs').addEventListener('click',e=>{const b=e.target.closest('[data-ev]');if(!b)return;S.ev=b.dataset.ev;rendu();});
+$('reessai').onclick=charger;
+
+/* ---- Compteurs ---- */
+document.querySelectorAll('[data-pas]').forEach(b=>b.onclick=()=>{$('nb').value=Math.min(MAX_N(),Math.max(MIN_N(),nbVal()+Number(b.dataset.pas)));rendu();});
+const MAXI={pizzas:()=>Math.max(1,nbVal()),champomy:()=>Math.max(1,Math.ceil(Math.max(nbVal(),1)/4)),tc:()=>Math.max(1,Math.ceil(Math.max(nbVal(),1)/6))-cpt('tp'),tp:()=>Math.max(1,Math.ceil(Math.max(nbVal(),1)/6))-cpt('tc')};
+document.querySelectorAll('.mini').forEach(m=>m.addEventListener('click',e=>{const b=e.target.closest('[data-d]');if(!b||b.disabled)return;const id=m.dataset.champ,o=$(id);o.value=Math.max(0,Math.min(MAXI[id](),cpt(id)+Number(b.dataset.d)));o.textContent=o.value;rendu();}));
+zeroOptions();
+
+/* ---- Prix (règles de l'outil) : détail ligne par ligne, remises en négatif ---- */
+function calcul(){
+  const F=FORMULES[S.f],n=Math.max(1,nbVal()),adulte=S.f==='adulte',qui=S.t==='enfant'?'enfant':S.t==='ado'?'participant':'personne';
+  const mer=!adulte&&S.d&&jourSem(S.d)===3,quiz=S.c&&S.c[0]==='Q';
+  const p0=F.prix+(quiz?5:0),pp=mer&&S.f!=='cosmos'?Math.round(p0*.8*100)/100:p0,fact=Math.max(n,MIN_N());
+  const L=[[`${fact} ${qui}${fact>1?'s':''} × ${eur(p0)}`+(quiz?' (Quiz Room comprise)':''),fact*p0]];
+  if(mer&&S.f!=='cosmos')L.push(['Tarif du mercredi (−20 %)',-(fact*p0-fact*pp),1]);
+  if(!adulte&&fact>=15)L.push([fact===15?`−20 % sur le 15e ${qui}`:`−20 % du 15e au ${fact}e ${qui}`,-Math.round((fact-14)*pp*.2*100)/100,1]);
+  if(mer&&S.f==='cosmos')L.push(['Mercredi : place de l\'enfant fêté offerte',-pp,1]);
+  if(adulte){const tc=cpt('tc'),tp=cpt('tp');if(tc)L.push([`${tc} tarte${tc>1?'s':''} au citron meringuée`,tc*15]);if(tp)L.push([`${tp} tarte${tp>1?'s':''} aux pommes`,tp*15]);}
+  else{const pz=cpt('pizzas'),ch=cpt('champomy');if(pz)L.push([`${pz} pizza${pz>1?'s':''} Margarita`,pz*9.9]);if(ch)L.push([`${ch} Champomy`,ch*10]);if($('anim').checked&&S.f!=='cosmos')L.push(['Animateur dédié',ANIM]);}
+  return{lignes:L,total:Math.round(L.reduce((t,l)=>t+l[1],0)*100)/100,acompte:Math.round(pp*2*100)/100};
+}
+
+/* ---- Contrôles : tous les manques en une fois ---- */
+const normNom=s=>s.replace(/[’‘`´]/g,"'").replace(/\s+/g,' ').trim();
+const NOM_OK=/^[\p{L}][\p{L}\p{M}' \-.]{0,39}$/u;
+const bonNom=x=>NOM_OK.test(x)&&!/^(test|non|oui|aucun|xx+|azerty|qwerty)$/i.test(x);
+const telNorm=t=>t.replace(/\(0\)/g,'').replace(/[\s.\-()]/g,'');
+const FAUTES={'gmail.con':'gmail.com','gmail.co':'gmail.com','gmail.fr':'gmail.com','gmial.com':'gmail.com','gmal.com':'gmail.com','gamil.com':'gmail.com','gmaill.com':'gmail.com','gnail.com':'gmail.com','hotmail.con':'hotmail.com','hotmial.com':'hotmail.com','hotmail.fe':'hotmail.fr','hotmal.fr':'hotmail.fr','yahoo.con':'yahoo.com','yahou.fr':'yahoo.fr','yaho.fr':'yahoo.fr','orange.f':'orange.fr','orage.fr':'orange.fr','wanadoo.f':'wanadoo.fr','outlok.fr':'outlook.fr','outlook.con':'outlook.com','icloud.con':'icloud.com','iclou.com':'icloud.com','free.f':'free.fr','sfr.f':'sfr.fr','laposte.ne':'laposte.net'};
+function emailSuggestion(){const v=$('email').value.trim(),m=/@([^@\s]+)$/.exec(v);if(!m)return'';const d=FAUTES[m[1].toLowerCase()];return d?v.slice(0,v.length-m[1].length)+d:'';}
+function controles(){
+  const v=id=>$(id).value.trim(),L=[],bad=new Set(),adulte=S.f==='adulte';
+  if(!bonNom(normNom(v('prenom')))){L.push(adulte||S.t==='ado'?'le prénom de la personne fêtée':'le prénom de l\'enfant');bad.add('prenom');}
+  if(!bonNom(normNom(v('nom')))){L.push('le nom de famille');bad.add('nom');}
+  if(!adulte){const age=Number(v('age')),[a0,a1]=FORMULES[S.f].ages;
+    if(!v('age')){L.push('l\'âge fêté');bad.add('age');}
+    else if(!(age>=a0&&age<=a1&&age===Math.floor(age))){L.push(`l'âge : la formule ${FORMULES[S.f].nom} est prévue de ${a0} à ${a1} ans`);bad.add('age');}
+    if(v('age')&&S.c&&S.c[0]==='Q'&&age<8)L.push('les activités : la Quiz Room est accessible dès 8 ans (choisissez un autre programme)');}
+  const n=nbVal(),qui=quiP(),mx=MAX_N();
+  if(n!==Math.floor(n)){L.push('le nombre : un nombre entier');bad.add('nb');}
+  else if(n<MIN_N()){L.push(`le nombre : ${MIN_N()} ${qui} au minimum`);bad.add('nb');}
+  else if(n>mx){L.push(mx<24?`le nombre : ${mx} ${qui} au plus pour ce programme (${mx===22?'laser game':'Quiz Room'}). Choisissez un autre programme, ou appelez-nous`:`le nombre : 24 ${qui} au plus en ligne ; au-delà, appelez-nous au 02 58 47 47 47`);bad.add('nb');}
+  else{const J=S.data&&S.d?S.data.jours[S.d]:null,sl=J&&J[S.f]?J[S.f].find(x=>x[0]===S.h):null;if(sl&&!sl[2]&&n>=20){L.push(`le nombre : à cet horaire, la place est prévue pour moins de 20 ${qui} ; choisissez un autre horaire ou appelez-nous`);bad.add('nb');}}
+  if(!bonNom(normNom(v('parent')))){L.push('votre prénom');bad.add('parent');}
+  const tel=telNorm(v('tel'));
+  if(!/^(0[1-9]\d{8}|\+33[1-9]\d{8}|0033[1-9]\d{8}|\+(?!33)[1-9]\d{7,13}|00(?!33)[1-9]\d{7,13})$/.test(tel)){L.push('le téléphone : 10 chiffres, par exemple 06 xx xx xx xx');bad.add('tel');}
+  else if(/^(0612345678|0123456789)$/.test(tel.replace(/^(\+33|0033)/,'0'))||/^0(\d)\1{8}$/.test(tel)){L.push('le téléphone : ce numéro ressemble à un exemple');bad.add('tel');}
+  if(!/^[^@\s]+@[^@\s]+\.[a-z]{2,}$/i.test(v('email'))){L.push('l\'e-mail : il doit ressembler à prenom@exemple.fr');bad.add('email');}
+  else if(/@(exemple|example|test)\./i.test(v('email'))){L.push('l\'e-mail : cette adresse ressemble à un exemple');bad.add('email');}
+  if(adulte){const tMax=Math.max(1,Math.ceil(Math.max(n,1)/6));if(cpt('tc')+cpt('tp')>tMax)L.push(`les tartes : ${tMax} au plus pour ${n} personnes`);}
+  else{if(cpt('pizzas')>Math.max(n,1))L.push('les pizzas : une par enfant au plus');const chMax=Math.max(1,Math.ceil(Math.max(n,1)/4));if(cpt('champomy')>chMax)L.push(`le Champomy : ${chMax} bouteille${chMax>1?'s':''} au plus`);}
+  CHAMPS.forEach(id=>$(id).setAttribute('aria-invalid',String(S.vu&&bad.has(id))));
+  return L;
+}
+
+/* ---- Envoi dans le formulaire « Réservation anniversaire en ligne » ---- */
+/* Hébergée hors de claude.ai (GitHub Pages, site Espace 360) : envoi en arrière-plan et créneaux lus dans le Google Sheet public.
+   Sur claude.ai, la plateforme bloque ces appels : envoi par la page Google et créneaux dans dispos.json. */
+const HORS_CLAUDE=!/claude|anthropic/i.test(location.hostname)&&(location.protocol==='https:'||location.hostname==='localhost');
+const SHEET_DISPOS='https://docs.google.com/spreadsheets/d/1OOx8eeuWj5ncgClesCTTKADtvuUUF-6taoyoN9ex5R4/gviz/tq?tqx=out:csv&headers=0&range=A1:A10';
+const FORM='https://docs.google.com/forms/d/e/1FAIpQLSf8qqxMjChkc6FmzU3_8RPaXLGcrP0eGYcIRqNHRClpvVjyYg/formResponse';
+const ENTREES={enfant:'1066877935',age:'1622184815',nb:'325997816',parent:'1009965044',tel:'770939532',email:'1549629407',resa:'1498488671',message:'1407999308'};
+function lienEnvoi(){
+  const c=calcul(),v=id=>$(id).value.trim(),adulte=S.f==='adulte',an=!adulte&&$('anim').checked&&S.f!=='cosmos';
+  const tc=adulte?cpt('tc'):0,tp=adulte?cpt('tp'):0,pz=adulte?0:cpt('pizzas'),ch=adulte?0:cpt('champomy'),bot=$('siteweb').value.trim()!=='';
+  const code=['d='+S.d,'h='+S.h,'f='+S.f,'c='+S.c,'g='+(adulte?'aucun':v('gateau')),'p='+pz,'ch='+ch,'an='+(an?1:0),'tc='+tc,'tp='+tp].concat(adulte?['ev='+S.ev]:[]).concat(bot?['bot=1']:[]).join(';');
+  const evTxt={anniv:'anniversaire',evjf:'EVJF',evg:'EVG',autre:'autre événement'}[S.ev];
+  const opts=adulte?`${evTxt} · ${tc} tarte(s) citron · ${tp} tarte(s) pommes`:`gâteau ${v('gateau')} · ${pz} pizza(s) · ${ch} Champomy · animateur ${an?'oui':'non'}`;
+  const resa=`${fmtJour(S.d)} à ${hFr(S.h)} · ${FORMULES[S.f].nom} · ${nomCombo(S.c).replace(/ /g,' ')} · ${opts} · total estimé ${eur(c.total).replace(/ /g,' ')} [${code}]`;
+  const val={enfant:normNom(v('prenom'))+' · '+normNom(v('nom')),age:adulte?'':v('age'),nb:String(nbVal()),parent:normNom(v('parent')),tel:v('tel'),email:v('email'),resa,message:v('question').slice(0,1500)};
+  return FORM+'?'+Object.entries(ENTREES).map(([k,id])=>'entry.'+id+'='+encodeURIComponent(val[k]||'')).join('&')+'&submit=Submit';
+}
+
+/* ---- Rendu ---- */
+function garderFocus(fn){const a=document.activeElement,k=a&&a.dataset?['d','h','c','f','ev','t'].find(x=>a.dataset[x]!==undefined):null;const v=k?a.dataset[k]:null;fn();if(k){const n=document.querySelector(`[data-${k}="${v}"]`);if(n&&n!==document.activeElement)n.focus({preventScroll:true});}}
+function rendu(){garderFocus(rendu2);sauver();}
+function rendu2(){
+  const adulte=S.f==='adulte',P=parcours(),i=P.indexOf(S.e),T=TYPES[S.t]||{};
+  if(S.e!=='accueil'&&S.t){
+    $('etapeNum').textContent=S.e==='merci'?'Demande envoyée':`Étape ${i+1} sur ${P.length}`;
+    $('etapeTitre').textContent=S.t==='adulte'?({evjf:'EVJF',evg:'EVG',autre:'Fête adulte',anniv:'Anniversaire adulte'})[S.ev]:'Fête '+({enfant:'enfant',ado:'ado'})[S.t]+(S.f&&S.t==='enfant'?' · '+FORMULES[S.f].nom:'');
+    $('rail').innerHTML=P.map((_,k)=>`<i class="${S.e==='merci'||k<=i?'ok':''}"></i>`).join('');
+    $('retour').hidden=S.e==='merci';
+  }
+  document.querySelectorAll('[data-f]').forEach(x=>x.setAttribute('aria-pressed',x.dataset.f===S.f));
+  /* jour */
+  $('jourIntro').textContent=S.f?`${FORMULES[S.f].nom} : seuls les jours où il reste de la place sont proposés.`:'';
+  $('dispoErreur').hidden=!S.err;$('calCarte').hidden=S.err;
+  $('dispoVieux').hidden=!(S.data&&Date.now()-Number(S.data.genere)>6*3600e3);
+  if(S.data&&S.f){if(!S.mois){const ks=Object.keys(S.data.jours).sort(),pr=ks.find(d=>etatJour(d));S.mois=(pr||ks[0]||TODAY).slice(0,7);}calendrier();}
+  const J=S.d&&S.data?S.data.jours[S.d]:null,L=J&&!J.ferme?creneaux(S.d,J[S.f],S.f):[];
+  $('heuresBloc').hidden=!S.d||!L.length;
+  if(S.d&&L.length){const H=horaires(S.d);$('jourChoisi').textContent=maj1(fmtJour(S.d));
+    $('jourAide').textContent=(enVacances(S.d)?'Vacances · ':'')+'ouvert de '+(H[0]/60)+'h à '+({1320:'22h',1440:'minuit',1500:'1h'})[H[1]];
+    $('heures').innerHTML=L.map(x=>`<button class="heure" data-h="${x[0]}" aria-pressed="${S.h===x[0]}">${hFr(x[0])}${x[2]?'':`<small>moins de 20</small>`}</button>`).join('');}
+  /* programmes */
+  $('progAide').textContent=adulte?'Les activités encore possibles à cet horaire. La planche apéritive et les deux boissons sans alcool suivent, à votre table.':'Les activités encore possibles à cet horaire. Le goûter suit, 30 minutes dans un espace réservé à votre groupe.';
+  const slot=L.find(x=>x[0]===S.h);
+  $('programmes').innerHTML=slot?slot[1].map(c=>{const acts=COMBOS[c],fin=adulte?45:30,tot=acts.reduce((t,a)=>t+a[1],0)+fin,pl=plafond(c);
+    return `<button class="prog" data-c="${c}" aria-pressed="${S.c===c}"><span class="p-nom">${nomCombo(c)}</span><span class="radio"></span><span class="frise" aria-hidden="true">${acts.map(([k,m])=>`<span style="flex:${m};background:var(${A[k][1]})"></span>`).join('')}<span style="flex:${fin};background:var(--c-gouter)"></span></span><span class="acts">${acts.map(([k,m])=>`<span style="--c:var(${A[k][1]})">${A[k][0]} ${dureeTxt(m)}</span>`).join('')}<span style="--c:var(--c-gouter)">${adulte?'Planche et 2 boissons':'Goûter'} ${dureeTxt(fin)}</span></span><span class="prog-pied"><span class="pastille">Environ ${dureeTxt(tot)}</span>${c[0]==='Q'?`<span class="pastille or">+5 € par enfant · dès 8 ans · 18 au plus</span>`:pl<24?`<span class="pastille">${pl} au plus</span>`:''}</span></button>`}).join(''):'';
+  /* infos */
+  $('evBox').hidden=!adulte;
+  $('evs').innerHTML=Object.entries(EVS).map(([k,t])=>`<button type="button" class="puce" data-ev="${k}" aria-pressed="${S.ev===k}">${t}</button>`).join('');
+  const fete=adulte?(S.ev==='evjf'?'La future mariée':S.ev==='evg'?'Le futur marié':'La personne fêtée'):S.t==='ado'?'La personne fêtée':'L\'enfant fêté';
+  $('tFete').textContent=fete;$('lPrenom').textContent=adulte||S.t==='ado'?'Prénom de la personne fêtée':'Prénom de l\'enfant';
+  $('lNb').textContent=adulte?'Nombre de personnes, en comptant '+(S.ev==='evjf'?'la future mariée':S.ev==='evg'?'le futur marié':'la personne fêtée'):S.t==='ado'?'Nombre de participants, avec la personne fêtée':'Nombre d\'enfants, avec l\'enfant fêté';
+  const mx=MAX_N();$('nb').min=MIN_N();$('nb').max=mx;
+  $('nbAide').textContent=`De ${MIN_N()} à ${mx} ${quiP()}${mx<24?` pour ce programme (${mx===22?'22 joueurs au plus au laser game':'18 au plus en Quiz Room'})`:''}.`+(adulte?'':' Les accompagnateurs ne paient pas.');
+  document.querySelectorAll('[data-pas]').forEach(b=>b.disabled=b.dataset.pas==='1'?nbVal()>=mx:nbVal()<=MIN_N());
+  $('lParent').textContent=adulte?'Votre prénom (organisateur ou organisatrice)':'Votre prénom';
+  $('ageBox').hidden=adulte;$('optsEnfant').hidden=adulte;$('optsAdulte').hidden=!adulte;$('tOptions').textContent=adulte?'Le dessert, en option':'Le goûter et les options';
+  const tOk=pomona(S.d);$('tartes').hidden=!tOk;$('tartesAvant').hidden=tOk;if(!tOk&&(cpt('tc')||cpt('tp'))){['tc','tp'].forEach(id=>{$(id).value=0;$(id).textContent='0';});}
+  $('animBox').hidden=adulte||S.f==='cosmos';$('animPrix').textContent=eur(ANIM);
+  ['pizzas','champomy'].forEach(id=>{if(cpt(id)>MAXI[id]()){$(id).value=MAXI[id]();$(id).textContent=$(id).value;}});
+  const pzM=MAXI.pizzas(),chM=MAXI.champomy(),tM=Math.max(1,Math.ceil(Math.max(nbVal(),1)/6));
+  $('pizzasAide').textContent=`9,90 € la pizza · ${pzM} au plus`;$('champomyAide').textContent=`10 € la bouteille · ${chM} au plus pour ${nbVal()} ${quiP()}`;
+  $('tcAide').textContent=$('tpAide').textContent=`15 € la tarte · ${tM} au plus en tout pour ${nbVal()} personnes`;
+  document.querySelectorAll('.mini').forEach(m=>{const id=m.dataset.champ;m.querySelector('[data-d="1"]').disabled=cpt(id)>=MAXI[id]();m.querySelector('[data-d="-1"]').disabled=cpt(id)<=0;});
+  const g=$('gateau'),gv=g.value,go=pomona(S.d)?(S.d.slice(5,7)==='01'?['Chocolat','Tarte aux pommes','Galette des rois']:['Chocolat','Tarte aux pommes']):['Chocolat'];
+  g.innerHTML=go.map(o=>`<option ${o===gv?'selected':''}>${o}</option>`).join('');
+  $('gateauAide').textContent=pomona(S.d)?'Servi avec bonbons, popcorn et sirop à volonté.':'Servi avec bonbons, popcorn et sirop à volonté. La tarte aux pommes est proposée pour les fêtes à partir du 5 novembre.';
+  const sug=emailSuggestion();$('emailAide').hidden=!sug;$('emailAide').innerHTML=sug?`Vouliez-vous dire <button type="button" id="emailFix">${esc(sug)}</button> ?`:'';
+  const q=$('question').value.length;$('compte').textContent=q>1200?`${q} / 1500 caractères`:'';
+  const pbs=S.c?controles():[];
+  $('manque').hidden=!(S.vu&&pbs.length);$('manque').innerHTML=pbs.length?'<b>Il reste à compléter</b><ul>'+pbs.map(x=>'<li>'+x+'</li>').join('')+'</ul>':'';
+  /* récap */
+  if(S.c&&S.d&&S.h){const c=calcul(),qui=normNom($('prenom').value),v=id=>esc($(id).value.trim());
+    $('recapHaut').innerHTML=`<small>${S.t==='enfant'?'Enfants · '+FORMULES[S.f].nom:S.t==='ado'?'Fête ado':({evjf:'EVJF',evg:'EVG',autre:'Fête adulte',anniv:'Anniversaire adulte'})[S.ev]}</small><b>${qui?(adulte&&(S.ev==='evjf'||S.ev==='evg')?'L’'+S.ev.toUpperCase()+' '+esc(de(qui)):'La fête '+esc(de(qui))):'Votre fête'}</b><p>${maj1(fmtJour(S.d))} à ${hFr(S.h)}<br>${nomCombo(S.c)}</p>`;
+    $('recap').innerHTML=
+      `<div class="bloc-r"><div class="tt"><b>Participants${adulte?'':' et goûter'}</b><button type="button" data-aller="infos">Modifier</button></div><p>${nbVal()} ${quiP()}${adulte?'':' · '+(S.t==='enfant'&&v('age')?v('age')+' ans · ':'')+'gâteau '+esc($('gateau').value.toLowerCase())}</p></div>`+
+      `<div class="bloc-r"><div class="tt"><b>Lyna vous répondra à</b><button type="button" data-aller="infos">Modifier</button></div><p>${esc(normNom($('parent').value))} · ${v('email')}<br>${v('tel')}</p>${$('question').value.trim()?`<p style="color:var(--second);margin-top:4px">« ${esc($('question').value.trim().slice(0,160))}${$('question').value.trim().length>160?'…':''} »</p>`:''}</div>`+
+      `<div class="bloc-r">`+c.lignes.map(l=>`<div class="ligne${l[2]?' moins':''}"><span>${l[0]}</span><span>${l[1]<0?'− '+eur(-l[1]):eur(l[1])}</span></div>`).join('')+
+      `<div class="ligne total"><span>Total estimé</span><span>${eur(c.total)}</span></div><div class="ligne acompte"><span>Acompte, par lien sécurisé</span><span>${eur(c.acompte)}</span></div></div>`;}
+  barre(pbs);
+}
+document.addEventListener('click',e=>{const b=e.target.closest('[data-aller]');if(b){aller(b.dataset.aller);return;}if(e.target.id==='emailFix'){$('email').value=emailSuggestion();rendu();}});
+function pret(e,pbs){return e==='formule'?!!S.f:e==='jour'?!!S.h:e==='prog'?!!S.c:e==='infos'?!pbs.length:e==='recap'?!pbs.length:false;}
+function barre(pbs){
+  const qui=S.t==='enfant'?'enfant':'pers.';
+  const s=S.d?fmtCourt(S.d)+(S.h?' · '+hFr(S.h):''):'Jour à choisir';
+  const prix=S.c&&S.nbVu?eur(calcul().total):S.f?'dès '+FORMULES[S.f].prix+' € / '+qui:S.t?TYPES[S.t].nom:'';
+  $('resume').innerHTML=`<b class="tab">${prix}</b><span>${s}${S.c&&S.nbVu?' · '+nbVal()+' '+quiP():''}</span>`;
+  $('asideDl').innerHTML=[['Fête',S.t?TYPES[S.t].nom+(S.f?' · '+FORMULES[S.f].nom:''):'—'],['Jour',S.d?maj1(fmtCourt(S.d)):'—'],['Heure',S.h?hFr(S.h):'—'],['Activités',S.c?nomCombo(S.c):'—']].concat(S.nbVu?[[maj1(quiP()),String(nbVal())]]:[]).map(([a,b])=>`<dt>${a}</dt><dd>${b}</dd>`).join('');
+  $('asidePrixL').textContent=S.c&&S.nbVu?'Total estimé':'À partir de';$('asidePrix').textContent=S.c&&S.nbVu?eur(calcul().total):S.f?FORMULES[S.f].prix+' € / '+qui:'';
+  const ok=pret(S.e,pbs),attente=(Date.now()-OUVERT_A)<8000,envoye=Date.now()-S.envoye<15000;
+  const actif=S.e==='infos'?true:ok&&!(S.e==='recap'&&(attente||envoye));
+  const txt=S.e==='recap'?(attente&&ok?'Un instant…':envoye?'Envoyé':'Envoyer ma demande'):S.e==='infos'?'Voir le récapitulatif':'Continuer';
+  const lien=S.e==='recap'&&actif?lienEnvoi():null;
+  CTAS.forEach(cta=>{cta.textContent=txt;if(lien)cta.setAttribute('aria-label',txt+' (ouvre une page Google dans un nouvel onglet)');else cta.removeAttribute('aria-label');cta.setAttribute('aria-disabled',String(!actif));
+    if(lien&&!HORS_CLAUDE){cta.href=lien;cta.target='_blank';cta.rel='noopener';}else{cta.removeAttribute('href');cta.removeAttribute('target');}if(HORS_CLAUDE)cta.removeAttribute('aria-label');if(HORS_CLAUDE&&lien)cta.dataset.lien=lien;else delete cta.dataset.lien;});
+  const choix=['formule','jour','prog'].includes(S.e);CTAS.forEach(c=>c.hidden=choix&&!ok);
+  document.querySelector('.barre').hidden=S.e==='merci';document.querySelector('.aside').style.visibility=S.e==='merci'?'hidden':'';
+}
+CTAS.forEach(cta=>{
+  cta.addEventListener('click',ev=>{
+    const P=parcours(),i=P.indexOf(S.e),pbs=S.c?controles():[];
+    if(HORS_CLAUDE&&S.e==='recap'){ev.preventDefault();if(Date.now()-S.envoye<15000||!cta.dataset.lien||cta.getAttribute('aria-disabled')==='true')return;envoyerDirect(cta.dataset.lien);return;}
+    if(S.e==='recap'||S.e==='merci'){if(Date.now()-S.envoye<15000||!cta.getAttribute('href')||cta.getAttribute('aria-disabled')==='true'){ev.preventDefault();return;}
+      const lien=cta.getAttribute('href');S.envoye=Date.now();$('renvoi').href=lien;
+      $('merciTexte').textContent=`La demande pour la fête ${de(normNom($('prenom').value))}, le ${fmtJour(S.d)} à ${hFr(S.h)}, est envoyée. Lyna vous répond par e-mail sous 48 h ouvrées, du mardi au samedi, avec la confirmation du créneau et votre lien de paiement sécurisé.`;
+      setTimeout(()=>{CTAS.forEach(c=>{c.removeAttribute('href');});aller('merci','remplacer');store.del();},60);return;}
+    ev.preventDefault();
+    if(cta.getAttribute('aria-disabled')==='true')return;
+    if(S.e==='infos'&&pbs.length){S.vu=true;rendu();$('manque').scrollIntoView({behavior:'smooth',block:'center'});return;}
+    if(pret(S.e,pbs)&&i<P.length-1)aller(P[i+1]);
+  });
+  cta.addEventListener('keydown',e=>{if(e.key===' '||(e.key==='Enter'&&!cta.getAttribute('href'))){e.preventDefault();cta.click();}});
+});
+function texteMerci(){const ev=S.t==='adulte'&&(S.ev==='evjf'||S.ev==='evg');return `La demande pour ${ev?'l’'+S.ev.toUpperCase():'la fête'} ${de(normNom($('prenom').value))}, le ${fmtJour(S.d)} à ${hFr(S.h)}, est envoyée. Lyna vous répond par e-mail sous 48\u00a0h ouvrées, du mardi au samedi, avec la confirmation du créneau et votre lien de paiement sécurisé.`;}
+/* envoi en arrière-plan vers le formulaire Google (réponse illisible par conception : on considère l'envoi fait si le réseau a répondu) */
+function envoyerDirect(lien){
+  S.envoye=Date.now();CTAS.forEach(c=>{c.textContent='Envoi en cours…';c.setAttribute('aria-disabled','true');});
+  const corps=lien.split('?')[1];
+  fetch(FORM,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:corps})
+   .then(()=>{$('merciTexte').textContent=texteMerci();aller('merci','remplacer');store.del();})
+   .catch(()=>{S.envoye=0;rendu();const a=$('envoiErreur');a.hidden=false;a.scrollIntoView({behavior:'smooth',block:'center'});});
+}
+$('renvoi').addEventListener('click',ev=>{if(Date.now()-S.envoye<15000||!$('renvoi').getAttribute('href')){ev.preventDefault();return;}S.envoye=Date.now();});
+$('nouvelle').onclick=()=>{store.del();location.reload();};
+CHAMPS.forEach(id=>$(id).addEventListener('input',rendu));
+$('anim').addEventListener('change',rendu);
+setInterval(()=>{if(S.e==='recap'&&(Date.now()-OUVERT_A<9000||Date.now()-S.envoye<16000))barre(controles());},1000);
+
+/* ---- Sauvegarde de la saisie (rechargement de la page) ---- */
+function sauver(){if(S.e==='merci'||!S.t)return;const o={t:S.t,f:S.f,d:S.d,h:S.h,c:S.c,ev:S.ev,e:S.e,nbVu:S.nbVu,anim:$('anim').checked,v:{}};CHAMPS.concat(['pizzas','champomy','tc','tp']).forEach(id=>o.v[id]=$(id).value);store.set(o);}
+function restaurer(){const o=store.get();if(!o||!o.t||!TYPES[o.t])return false;Object.assign(S,{t:o.t,f:o.f,d:o.d,h:o.h,c:o.c,ev:o.ev||'anniv',nbVu:!!o.nbVu,mois:o.d?o.d.slice(0,7):null});
+  Object.entries(o.v||{}).forEach(([id,val])=>{const el=$(id);if(!el)return;if(id==='gateau'){el.innerHTML=`<option>${esc(val)}</option>`;}el.value=val;if(el.tagName==='OUTPUT')el.textContent=val;});$('anim').checked=!!o.anim;formules();return o.e&&o.e!=='merci'&&o.e!=='accueil'?o.e:'formule';}
+
+/* ---- Créneaux ---- */
+const lireSheet=()=>fetch(SHEET_DISPOS,{cache:'no-store'}).then(r=>{if(!r.ok)throw 0;return r.text();}).then(t=>JSON.parse(t.split(/\r?\n/).filter(Boolean).map(l=>l.replace(/^"|"$/g,'').replace(/""/g,'"')).join('')));
+const lireFichier=()=>fetch('dispos.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw 0;return r.json();});
+function charger(){S.err=false;
+  (HORS_CLAUDE?lireSheet().catch(lireFichier):lireFichier()).then(d=>{
+    if(!d||typeof d.jours!=='object'||!d.jours||!Object.keys(d.jours).length)throw 0;
+    S.data=d;S.err=false;$('maj').textContent='Créneaux mis à jour le '+new Date(d.genere).toLocaleString('fr-FR',{day:'numeric',month:'long',hour:'2-digit',minute:'2-digit'})+'. Lyna confirme chaque demande.';rendu();})
+  .catch(()=>{S.data=null;S.err=true;$('maj').textContent='';rendu();});}
+try{document.documentElement.lang='fr';}catch(x){}
+if(HORS_CLAUDE){$('etape1').innerHTML='<i>1</i><span><b>Votre demande part directement chez Lyna.</b> Rien d\'autre à faire.</span>';$('renvoiP').hidden=true;}
+const reprise=restaurer();
+if(reprise){try{history.replaceState({e:'accueil'},'');}catch(x){}aller(reprise);}else aller('accueil','remplacer');
+S.pret=true;
+charger();
+})();
+</script>
+</body></html>
