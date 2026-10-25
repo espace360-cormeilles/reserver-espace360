@@ -486,7 +486,7 @@ const store={get(){try{return JSON.parse(sessionStorage.getItem('e360-fete')||'n
 
 /* ---- Offre : mêmes chiffres et mêmes règles que l'outil de Lyna (tarifs du 1er novembre ; prix d'avant pour les demandes faites jusqu'au 31/10) ---- */
 const TYPES={
-  enfant:{nom:'Enfants',age:['3','ans +'],cl:'e',qui:'Mini Buzz, Adventure Mars ou Cosmos VIP',par:'enfant',formules:['minibuzz','adventure','cosmos']},
+  enfant:{nom:'Enfants',age:['3','à 12 ans'],cl:'e',qui:'Mini Buzz, Adventure Mars ou Cosmos VIP',par:'enfant',formules:['minibuzz','adventure','cosmos']},
   ado:{nom:'Ados',age:['12','à 18 ans'],cl:'a',qui:'Entre amis, en fin de journée',par:'personne',formules:['ado']},
   adulte:{nom:'Adultes',age:['18','ans +'],cl:'d',qui:'Anniversaire, EVG ou EVJF · dès 6 personnes',par:'personne',formules:['adulte']}
 };
@@ -731,7 +731,7 @@ function barre(pbs){
   const prix=S.c&&S.nbVu?eur(calcul().total):S.f?'dès '+FORMULES[S.f].prix+' € / '+qui:S.t?TYPES[S.t].nom:'';
   $('resume').innerHTML=`<b class="tab">${prix}</b><span>${s}${S.c&&S.nbVu?' · '+nbVal()+' '+quiP():''}</span>`;
   $('asideDl').innerHTML=[['Fête',S.t?TYPES[S.t].nom+(S.f?' · '+FORMULES[S.f].nom:''):'—'],['Jour',S.d?maj1(fmtCourt(S.d)):'—'],['Heure',S.h?hFr(S.h):'—'],['Activités',S.c?nomCombo(S.c):'—']].concat(S.nbVu?[[maj1(quiP()),String(nbVal())]]:[]).map(([a,b])=>`<dt>${a}</dt><dd>${b}</dd>`).join('');
-  $('asidePrixL').textContent=S.c&&S.nbVu?'Total estimé':'À partir de';$('asidePrix').textContent=S.c&&S.nbVu?eur(calcul().total):S.f?FORMULES[S.f].prix+' € / '+qui:'';
+  $('asidePrixL').textContent=S.c&&S.nbVu?'Total estimé':'À partir de';$('asidePrix').textContent=S.c&&S.nbVu?eur(calcul().total):S.f?prixAffiche(S.f)+' € / '+qui:'';
   const ok=pret(S.e,pbs),attente=(Date.now()-OUVERT_A)<8000,envoye=Date.now()-S.envoye<15000;
   const actif=S.e==='infos'?true:ok&&!(S.e==='recap'&&(attente||envoye));
   const txt=S.e==='recap'?(attente&&ok?'Un instant…':envoye?'Envoyé':'Envoyer ma demande'):S.e==='infos'?'Voir le récapitulatif':'Continuer';
@@ -777,6 +777,8 @@ function restaurer(){const o=store.get();if(!o||!o.t||!TYPES[o.t])return false;O
   Object.entries(o.v||{}).forEach(([id,val])=>{const el=$(id);if(!el)return;if(id==='gateau'){el.innerHTML=`<option>${esc(val)}</option>`;}el.value=val;if(el.tagName==='OUTPUT')el.textContent=val;});$('anim').checked=!!o.anim;formules();return o.e&&o.e!=='merci'&&o.e!=='accueil'?o.e:'formule';}
 
 /* ---- Créneaux ---- */
+/* prix « à partir de » : tarif du mercredi (−20 %) dès qu'un mercredi est choisi (sauf Cosmos et Adultes) */
+const prixAffiche=f=>{const p=FORMULES[f].prix;return S.d&&new Date(S.d+'T12:00:00').getDay()===3&&f!=='cosmos'&&f!=='adulte'?String(Math.round(p*80)/100).replace('.',','):p;};
 const lireSheet=()=>fetch(SHEET_DISPOS,{cache:'no-store'}).then(r=>{if(!r.ok)throw 0;return r.text();}).then(t=>JSON.parse(t.split(/\r?\n/).filter(Boolean).map(l=>l.replace(/^"|"$/g,'').replace(/""/g,'"')).join('')));
 const lireFichier=()=>fetch('dispos.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw 0;return r.json();});
 function charger(){S.err=false;
