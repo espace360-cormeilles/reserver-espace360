@@ -782,8 +782,10 @@ const prixAffiche=f=>{const p=FORMULES[f].prix;return S.d&&new Date(S.d+'T12:00:
 const lireSheet=()=>fetch(SHEET_DISPOS,{cache:'no-store'}).then(r=>{if(!r.ok)throw 0;return r.text();}).then(t=>JSON.parse(t.split(/\r?\n/).filter(Boolean).map(l=>l.replace(/^"|"$/g,'').replace(/""/g,'"')).join('')));
 const lireFichier=()=>fetch('dispos.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw 0;return r.json();});
 function charger(){S.err=false;
-  (HORS_CLAUDE?lireSheet().catch(lireFichier):lireFichier()).then(d=>{
+  (HORS_CLAUDE?lireSheet():lireFichier()).then(d=>{
     if(!d||typeof d.jours!=='object'||!d.jours||!Object.keys(d.jours).length)throw 0;
+    /* 10/11/2026 : jamais de créneaux de plus de 36 h (ils peuvent être déjà pris) : on invite à appeler */
+    if(!(Number(d.genere)>Date.now()-36*36e5))throw 0;
     S.data=d;S.err=false;$('maj').textContent='Créneaux mis à jour le '+new Date(d.genere).toLocaleString('fr-FR',{day:'numeric',month:'long',hour:'2-digit',minute:'2-digit'})+'. Lyna confirme chaque demande.';rendu();})
   .catch(()=>{S.data=null;S.err=true;$('maj').textContent='';rendu();});}
 try{document.documentElement.lang='fr';}catch(x){}
