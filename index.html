@@ -325,8 +325,8 @@ footer a{color:inherit}
     <h2 class="vh">Pour qui est la fête ?</h2>
     <ul class="carte types" id="types"></ul>
     <ul class="plus-list">
-      <li><span class="pi"><svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path d="M3 9h14v8H3zM2 6h16v3H2zM10 6v11M10 6c-1-3-5-3-5-1s3 1 5 1c2 0 5 1 5-1s-4-2-5 1" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></span><span><b>Pour les enfants, tout est fourni</b>Gâteau, bonbons, popcorn, sirop et cartons d'invitation</span></li>
-      <li><span class="pi"><svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path d="M2 16h16M4 16V8h12v8M7 8V5h6v3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></span><span><b>Un espace rien qu'à vous</b>Le goûter se prend dans un espace réservé au groupe</span></li>
+      <li><span class="pi"><svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path d="M3 9h14v8H3zM2 6h16v3H2zM10 6v11M10 6c-1-3-5-3-5-1s3 1 5 1c2 0 5 1 5-1s-4-2-5 1" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></span><span><b>Pour les enfants, tout est fourni</b>Gâteau, bonbons, popcorn et sirop (cartons d'invitation à télécharger sur notre site)</span></li>
+      <li><span class="pi"><svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path d="M2 16h16M4 16V8h12v8M7 8V5h6v3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></span><span><b>Une table rien qu'à vous</b>Le goûter se prend à votre table d'anniversaire</span></li>
       <li><span class="pi"><svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><circle cx="7" cy="6" r="2.6" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="14" cy="7" r="2.1" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M2.5 17c0-3 2-5 4.5-5s4.5 2 4.5 5M12 12.3c2.6-.4 5 1.4 5 4.7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span><span><b>Parents bienvenus</b>Les accompagnateurs ne paient pas et restent pendant la fête</span></li>
     </ul>
   </div>
@@ -491,10 +491,10 @@ const TYPES={
   adulte:{nom:'Adultes',age:['18','ans +'],cl:'d',qui:'Anniversaire, EVG ou EVJF · dès 6 personnes',par:'personne',formules:['adulte']}
 };
 const FORMULES={
-  minibuzz:{nom:'Mini Buzz',age:'3 à 7 ans',prix:25,ages:[3,7],inclus:['Trampoline et plaine de jeux','Goûter de 30 min dans un espace réservé','Cartons d\'invitation fournis'],note:'20 € par enfant le mercredi'},
-  adventure:{nom:'Adventure Mars',age:'Dès 7 ans',prix:30,ages:[7,17],inclus:['Deux activités au choix, ou 1 h 30 d\'escalade','Option Quiz Room dès 8 ans','Goûter de 30 min et cartons d\'invitation'],note:'24 € par enfant le mercredi'},
-  cosmos:{nom:'Cosmos VIP',age:'Dès 7 ans',prix:45,ages:[7,17],inclus:['Trois activités, dont le laser game','Un animateur dédié pendant toute la fête','Sachet de bonbons et bon laser game pour chaque invité','Goûter de 30 min et cartons d\'invitation'],note:'Le mercredi, la place de l\'enfant fêté est offerte'},
-  ado:{nom:'Ado',age:'12 à 18 ans',prix:35,ages:[12,18],inclus:['Deux activités au choix : laser game, bowling, fléchettes, karaoké','Goûter de 30 min dans un espace réservé','Cartons d\'invitation fournis'],note:'28 € par personne le mercredi'},
+  minibuzz:{nom:'Mini Buzz',age:'3 à 7 ans',prix:25,ages:[3,7],inclus:['Trampoline et plaine de jeux','Goûter de 30 min à votre table d\'anniversaire'],note:'20 € par enfant le mercredi'},
+  adventure:{nom:'Adventure Mars',age:'Dès 7 ans',prix:30,ages:[7,17],inclus:['Deux activités au choix, ou 1 h 30 d\'escalade','Option Quiz Room dès 8 ans','Goûter de 30 min à votre table d\'anniversaire'],note:'24 € par enfant le mercredi'},
+  cosmos:{nom:'Cosmos VIP',age:'Dès 7 ans',prix:45,ages:[7,17],inclus:['Trois activités, dont le laser game','Un animateur dédié pendant toute la fête','Sachet de bonbons et bon laser game pour chaque invité','Goûter de 30 min à votre table d\'anniversaire'],note:'Le mercredi, la place de l\'enfant fêté est offerte'},
+  ado:{nom:'Ado',age:'12 à 18 ans',prix:35,ages:[12,18],inclus:['Deux activités au choix : laser game, bowling, fléchettes, karaoké','Goûter de 30 min à votre table d\'anniversaire'],note:'28 € par personne le mercredi'},
   adulte:{nom:'Adultes',age:'18 ans et plus',prix:35,ages:[18,120],inclus:['Deux activités au choix : laser game, bowling, karaoké, fléchettes, billard, Quiz Room','Une planche apéritive et deux boissons sans alcool par personne, à votre table','Tartes en option'],note:'Pour un EVG ou un EVJF, Lyna peut vous faire une proposition sur mesure'}
 };
 const EVS={anniv:'Un anniversaire',evjf:'Un EVJF',evg:'Un EVG',autre:'Autre chose'};
@@ -556,7 +556,7 @@ $('types').addEventListener('click',e=>{const b=e.target.closest('[data-t]');if(
 
 /* ---- Formules ---- */
 function formules(){const T=TYPES[S.t];
-  $('formuleIntro').textContent=S.t==='adulte'?'Ce qui est compris dans la formule adultes.':S.t==='ado'?'Ce qui est compris dans la formule ado.':'Toutes comprennent les activités, le goûter dans un espace réservé à votre groupe et les cartons d\'invitation.';
+  $('formuleIntro').textContent=S.t==='adulte'?'Ce qui est compris dans la formule adultes.':S.t==='ado'?'Ce qui est compris dans la formule ado.':'Toutes comprennent les activités et le goûter à votre table d\'anniversaire.';
   $('formules').innerHTML=T.formules.map(k=>{const f=FORMULES[k];
   return `<button class="formule" data-f="${k}" aria-pressed="${S.f===k}"><span class="f-haut"><span class="f-nom"><span class="radio"></span><span><b>${f.nom}</b><small>${f.age}</small></span></span><span class="f-prix"><strong>${f.prix} €</strong><small>par ${k==='adulte'||k==='ado'?'personne':'enfant'}</small></span></span><span class="f-liste">${f.inclus.map(x=>`<span>${COCHE}<span>${x}</span></span>`).join('')}</span><span class="f-note">${f.note}</span></button>`}).join('');}
 $('formules').addEventListener('click',e=>{const b=e.target.closest('[data-f]');if(!b)return;if(S.f!==b.dataset.f){S.f=b.dataset.f;S.d=S.h=S.c=null;S.mois=null;}rendu();suivant('formule');});
@@ -684,7 +684,7 @@ function rendu2(){
     $('jourAide').textContent=(enVacances(S.d)?'Vacances · ':'')+'ouvert de '+(H[0]/60)+'h à '+({1320:'22h',1440:'minuit',1500:'1h'})[H[1]];
     $('heures').innerHTML=L.map(x=>`<button class="heure" data-h="${x[0]}" aria-pressed="${S.h===x[0]}">${hFr(x[0])}${x[2]?'':`<small>moins de 20</small>`}</button>`).join('');}
   /* programmes */
-  $('progAide').textContent=adulte?'Les activités encore possibles à cet horaire. La planche apéritive et les deux boissons sans alcool suivent, à votre table.':'Les activités encore possibles à cet horaire. Le goûter suit, 30 minutes dans un espace réservé à votre groupe.';
+  $('progAide').textContent=adulte?'Les activités encore possibles à cet horaire. La planche apéritive et les deux boissons sans alcool suivent, à votre table.':'Les activités encore possibles à cet horaire. Le goûter suit, 30 minutes à votre table d\'anniversaire.';
   const slot=L.find(x=>x[0]===S.h);
   $('programmes').innerHTML=slot?slot[1].map(c=>{const acts=COMBOS[c],fin=adulte?45:30,tot=acts.reduce((t,a)=>t+a[1],0)+fin,pl=plafond(c);
     return `<button class="prog" data-c="${c}" aria-pressed="${S.c===c}"><span class="p-nom">${nomCombo(c)}</span><span class="radio"></span><span class="frise" aria-hidden="true">${acts.map(([k,m])=>`<span style="flex:${m};background:var(${A[k][1]})"></span>`).join('')}<span style="flex:${fin};background:var(--c-gouter)"></span></span><span class="acts">${acts.map(([k,m])=>`<span style="--c:var(${A[k][1]})">${A[k][0]} ${dureeTxt(m)}</span>`).join('')}<span style="--c:var(--c-gouter)">${adulte?'Planche et 2 boissons':'Goûter'} ${dureeTxt(fin)}</span></span><span class="prog-pied"><span class="pastille">Environ ${dureeTxt(tot)}</span>${c[0]==='Q'?`<span class="pastille or">+5 € par enfant · dès 8 ans · 18 au plus</span>`:pl<24?`<span class="pastille">${pl} au plus</span>`:''}</span></button>`}).join(''):'';
