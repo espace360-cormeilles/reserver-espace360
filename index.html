@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="description" content="Réservez l'anniversaire de votre enfant, une fête ado ou une fête adulte à Espace 360 Cormeilles-en-Parisis : formule, jour et activités parmi les créneaux libres.">
+<meta name="description" content="Réservez l'anniversaire de votre enfant, une fête ado, un EVJF ou un EVG à Espace 360 Cormeilles-en-Parisis : formule, jour et activités parmi les créneaux libres.">
 <meta name="robots" content="noindex">
 <meta name="theme-color" content="#091421">
 <meta property="og:title" content="Réserver une fête · Espace 360 Cormeilles">
@@ -329,7 +329,6 @@ footer a{color:inherit}
       <li><span class="pi"><svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path d="M2 16h16M4 16V8h12v8M7 8V5h6v3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></span><span><b>Un espace rien qu'à vous</b>Le goûter se prend dans un espace réservé au groupe</span></li>
       <li><span class="pi"><svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><circle cx="7" cy="6" r="2.6" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="14" cy="7" r="2.1" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M2.5 17c0-3 2-5 4.5-5s4.5 2 4.5 5M12 12.3c2.6-.4 5 1.4 5 4.7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span><span><b>Parents bienvenus</b>Les accompagnateurs ne paient pas et restent pendant la fête</span></li>
     </ul>
-    <p class="mesure" style="margin:14px 0 0;font-size:15px;opacity:.9"><b>Plus de 24 enfants, un autre programme ?</b> Lyna vous prépare une fête sur mesure : <a href="tel:+33258474747">02 58 47 47 47</a>.</p>
   </div>
   <footer class="col">
     <b>Espace 360 Cormeilles</b>
@@ -489,21 +488,21 @@ const store={get(){try{return JSON.parse(sessionStorage.getItem('e360-fete')||'n
 const TYPES={
   enfant:{nom:'Enfants',age:['3','à 12 ans'],cl:'e',qui:'Mini Buzz, Adventure Mars ou Cosmos VIP',par:'enfant',formules:['minibuzz','adventure','cosmos']},
   ado:{nom:'Ados',age:['12','à 18 ans'],cl:'a',qui:'Entre amis, en fin de journée',par:'personne',formules:['ado']},
-  adulte:{nom:'Adultes',age:['18','ans +'],cl:'d',qui:'Anniversaire ou fête entre amis · dès 6 personnes',par:'personne',formules:['adulte']}
+  adulte:{nom:'Adultes',age:['18','ans +'],cl:'d',qui:'Anniversaire, EVG ou EVJF · dès 6 personnes',par:'personne',formules:['adulte']}
 };
 const FORMULES={
   minibuzz:{nom:'Mini Buzz',age:'3 à 7 ans',prix:25,ages:[3,7],inclus:['Trampoline et plaine de jeux','Goûter de 30 min dans un espace réservé','Cartons d\'invitation fournis'],note:'20 € par enfant le mercredi'},
   adventure:{nom:'Adventure Mars',age:'Dès 7 ans',prix:30,ages:[7,17],inclus:['Deux activités au choix, ou 1 h 30 d\'escalade','Option Quiz Room dès 8 ans','Goûter de 30 min et cartons d\'invitation'],note:'24 € par enfant le mercredi'},
-  cosmos:{nom:'Cosmos VIP',age:'Dès 7 ans',prix:45,ages:[7,17],inclus:['Trois activités, dont le laser game','Sachet de bonbons et bon laser game pour chaque invité','Goûter de 30 min et cartons d\'invitation','Animateur dédié en option'],note:'Le mercredi, la place de l\'enfant fêté est offerte'},
-  ado:{nom:'Ado',age:'12 à 18 ans',prix:35,ages:[12,18],inclus:['Deux activités au choix : trampoline, laser game, bowling, fléchettes, karaoké, ou 1 h 30 d\'escalade','Goûter de 30 min dans un espace réservé','Cartons d\'invitation fournis'],note:'28 € par personne le mercredi'},
-  adulte:{nom:'Adultes',age:'18 ans et plus',prix:35,ages:[18,120],inclus:['Deux activités au choix : laser game, bowling, karaoké, fléchettes, billard, Quiz Room','Une planche apéritive et deux boissons sans alcool par personne, à votre table','Tartes en option'],note:'Un autre projet (grand groupe, privatisation) ? Lyna vous fait une proposition sur mesure'}
+  cosmos:{nom:'Cosmos VIP',age:'Dès 7 ans',prix:45,ages:[7,17],inclus:['Trois activités, dont le laser game','Un animateur dédié pendant toute la fête','Sachet de bonbons et bon laser game pour chaque invité','Goûter de 30 min et cartons d\'invitation'],note:'Le mercredi, la place de l\'enfant fêté est offerte'},
+  ado:{nom:'Ado',age:'12 à 18 ans',prix:35,ages:[12,18],inclus:['Deux activités au choix : laser game, bowling, fléchettes, karaoké','Goûter de 30 min dans un espace réservé','Cartons d\'invitation fournis'],note:'28 € par personne le mercredi'},
+  adulte:{nom:'Adultes',age:'18 ans et plus',prix:35,ages:[18,120],inclus:['Deux activités au choix : laser game, bowling, karaoké, fléchettes, billard, Quiz Room','Une planche apéritive et deux boissons sans alcool par personne, à votre table','Tartes en option'],note:'Pour un EVG ou un EVJF, Lyna peut vous faire une proposition sur mesure'}
 };
-const EVS={anniv:'Un anniversaire',autre:'Une autre fête'}; /* 11/11/2026 : plus d'offre EVG / EVJF */
+const EVS={anniv:'Un anniversaire',evjf:'Un EVJF',evg:'Un EVG',autre:'Autre chose'};
 const A={trampo:['Trampoline','--c-trampo'],plaine:['Plaine de jeux','--c-plaine'],laser:['Laser game','--c-laser'],bowling:['Bowling','--c-bowling'],karaoke:['Karaoké','--c-karaoke'],escalade:['Escalade','--c-escalade'],quiz:['Quiz Room','--c-quiz'],flechettes:['Fléchettes','--c-flechettes'],billard:['Billard','--c-billard']};
 const COMBOS={M1:[['trampo',60],['plaine',30]],M2:[['trampo',90]],A:[['trampo',60],['laser',20]],B:[['bowling',60],['karaoke',45]],C:[['trampo',60],['karaoke',45]],D:[['bowling',60],['trampo',60]],E:[['bowling',60],['laser',20]],F:[['karaoke',45],['laser',20]],X:[['escalade',90]],Q1:[['quiz',60],['trampo',60]],Q2:[['quiz',60],['laser',20]],Q3:[['quiz',60],['bowling',60]],Q4:[['quiz',60],['karaoke',45]],G:[['laser',20],['bowling',60]],H:[['laser',20],['flechettes',45]],I:[['bowling',60],['flechettes',45]],J:[['karaoke',45],['flechettes',45]],K1:[['trampo',60],['escalade',45],['laser',20]],K2:[['trampo',60],['bowling',60],['laser',20]],K3:[['trampo',60],['karaoke',45],['laser',20]],K4:[['bowling',60],['escalade',45],['laser',20]],P1:[['laser',20],['bowling',60]],P2:[['laser',20],['karaoke',45]],P3:[['bowling',60],['karaoke',45]],P4:[['flechettes',45],['billard',45]],P5:[['quiz',45],['laser',20]]};
 const dureeTxt=m=>m>=60?(Math.floor(m/60)+' h'+(m%60?' '+pad(m%60):'')):m+' min';
 const nomCombo=c=>c==='M2'?'Trampoline 1 h 30':c==='X'?'Spécial escalade 1 h 30':COMBOS[c].map(([k,m])=>A[k][0]+(k==='laser'?'':' '+dureeTxt(m))).join(' + ');
-const ANIM=120; /* 11/11/2026 : animateur dédié 120 € (toutes formules enfants, Cosmos comprise) */
+const ANIM=90;
 /* capacités : 22 joueurs au plus au laser game (2 gilets en réserve), 18 en Quiz Room */
 const plafond=c=>{const a=(COMBOS[c]||[]).map(x=>x[0]);return a.includes('quiz')?18:a.includes('laser')?22:24;};
 
@@ -608,7 +607,7 @@ function calcul(){
   if(!adulte&&fact>=15)L.push([fact===15?`−20 % sur le 15e ${qui}`:`−20 % du 15e au ${fact}e ${qui}`,-Math.round((fact-14)*pp*.2*100)/100,1]);
   if(mer&&S.f==='cosmos')L.push(['Mercredi : place de l\'enfant fêté offerte',-pp,1]);
   if(adulte){const tc=cpt('tc'),tp=cpt('tp');if(tc)L.push([`${tc} tarte${tc>1?'s':''} au citron meringuée`,tc*15]);if(tp)L.push([`${tp} tarte${tp>1?'s':''} aux pommes`,tp*15]);}
-  else{const pz=cpt('pizzas'),ch=cpt('champomy');if(pz)L.push([`${pz} pizza${pz>1?'s':''} Margarita`,pz*9.9]);if(ch)L.push([`${ch} Champomy`,ch*5]);if($('anim').checked)L.push(['Animateur dédié',ANIM]);}
+  else{const pz=cpt('pizzas'),ch=cpt('champomy');if(pz)L.push([`${pz} pizza${pz>1?'s':''} Margarita`,pz*9.9]);if(ch)L.push([`${ch} Champomy`,ch*10]);if($('anim').checked&&S.f!=='cosmos')L.push(['Animateur dédié',ANIM]);}
   return{lignes:L,total:Math.round(L.reduce((t,l)=>t+l[1],0)*100)/100,acompte:Math.round(pp*2*100)/100};
 }
 
@@ -701,10 +700,10 @@ function rendu2(){
   $('lParent').textContent=adulte?'Votre prénom (organisateur ou organisatrice)':'Votre prénom';
   $('ageBox').hidden=adulte;$('optsEnfant').hidden=adulte;$('optsAdulte').hidden=!adulte;$('tOptions').textContent=adulte?'Le dessert, en option':'Le goûter et les options';
   const tOk=pomona(S.d);$('tartes').hidden=!tOk;$('tartesAvant').hidden=tOk;if(!tOk&&(cpt('tc')||cpt('tp'))){['tc','tp'].forEach(id=>{$(id).value=0;$(id).textContent='0';});}
-  $('animBox').hidden=adulte;$('animPrix').textContent=eur(ANIM);
+  $('animBox').hidden=adulte||S.f==='cosmos';$('animPrix').textContent=eur(ANIM);
   ['pizzas','champomy'].forEach(id=>{if(cpt(id)>MAXI[id]()){$(id).value=MAXI[id]();$(id).textContent=$(id).value;}});
   const pzM=MAXI.pizzas(),chM=MAXI.champomy(),tM=Math.max(1,Math.ceil(Math.max(nbVal(),1)/6));
-  $('pizzasAide').textContent=`9,90 € la pizza · ${pzM} au plus`;$('champomyAide').textContent=`5 € la bouteille · ${chM} au plus pour ${nbVal()} ${quiP()}`;
+  $('pizzasAide').textContent=`9,90 € la pizza · ${pzM} au plus`;$('champomyAide').textContent=`10 € la bouteille · ${chM} au plus pour ${nbVal()} ${quiP()}`;
   $('tcAide').textContent=$('tpAide').textContent=`15 € la tarte · ${tM} au plus en tout pour ${nbVal()} personnes`;
   document.querySelectorAll('.mini').forEach(m=>{const id=m.dataset.champ;m.querySelector('[data-d="1"]').disabled=cpt(id)>=MAXI[id]();m.querySelector('[data-d="-1"]').disabled=cpt(id)<=0;});
   const g=$('gateau'),gv=g.value,go=pomona(S.d)?(S.d.slice(5,7)==='01'?['Chocolat','Tarte aux pommes','Galette des rois']:['Chocolat','Tarte aux pommes']):['Chocolat'];
